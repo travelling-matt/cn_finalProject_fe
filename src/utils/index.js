@@ -29,7 +29,7 @@ export const signUpFetch = async (email, password, setUser) => {
     }
 };
 
-export const loginFetch = async (password, setUser) => {
+export const loginFetch = async (email, password, setUser) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
             method: "POST",

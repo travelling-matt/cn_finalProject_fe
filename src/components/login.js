@@ -1,51 +1,49 @@
 import { useState } from "react";
-import { loginFetch, signUpFetch, signupFetch } from "../utils";
+import { loginFetch, signUpFetch } from "../utils";
 
 export const Login = ({ setUser }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [loginBool, setLoginBool] = useState(false);
 
-    const submitHandler = async (e) => {
-        e.preventDefault();
-        try {
-            //this logic needs re-writing as we don't have a username and log in by email
-            if (email) {
-                signUpFetch(username, email, password, setUser);
-            } else {
-                loginFetch(username, password, setUser);
-            }
-        } catch (error) {}
-    };
+    // const submitHandler = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         //this logic needs re-writing as we don't have a username and log in by email
+    //         if (email) {
+    //             signUpFetch(email, password, setUser);
+    //         } else {
+    //             loginFetch(email, password, setUser);
+    //         }
+    //     } catch (error) {}
+    // };
 
-    //http to be displayed
+    //html to be displayed
     return (
         <div>
-            <form onSubmit={submitHandler}>
-                <input
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                />
-                {!loginBool && (
-                    <input
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
-                    />
-                )}
-                <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                />
-                <button type="submit">Submit</button>
+            <form onSubmit={loginFetch}>Log in
+            <input
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+            />
+            <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+            />
+            <button type="submit">Login</button>
             </form>
-            <button
-                onClick={(e) => {
-                    e.preventDefault();
-                    setLoginBool(!loginBool);
-                }}
-            >
-                {loginBool ? "Sign Up?" : "Log In?"}
-            </button>
+            <form onSubmit={signUpFetch}>Sign Up
+            <input
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+            />
+            <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+            />
+            <button type="submit">Create Account</button>
+            </form>
         </div>
     );
 };
