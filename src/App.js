@@ -1,5 +1,5 @@
 import { Headers } from './components/Header/header';
-import { Layout } from './components/Layout/layout';
+import { Layout } from './components/Layout/Layout';
 import './styles/global.css';
 
 const App = () =>{
