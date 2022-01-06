@@ -5,22 +5,27 @@ export const Login = ({ setUser }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    // const submitHandler = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         //this logic needs re-writing as we don't have a username and log in by email
-    //         if (email) {
-    //             signUpFetch(email, password, setUser);
-    //         } else {
-    //             loginFetch(email, password, setUser);
-    //         }
-    //     } catch (error) {}
-    // };
+    const loginHandler = async (e) => {
+        e.preventDefault();
+        try {
+            loginFetch(email, password, setUser);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const signUpHandler = async (e) => {
+        e.preventDefault();
+        try {
+            signUpFetch(email, password, setUser);            
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     //html to be displayed
     return (
         <div>
-            <form onSubmit={loginFetch}>Log in
+            <form onSubmit={loginHandler}>Log in
             <input
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
@@ -32,7 +37,7 @@ export const Login = ({ setUser }) => {
             />
             <button type="submit">Login</button>
             </form>
-            <form onSubmit={signUpFetch}>Sign Up
+            <form onSubmit={signUpHandler}>Sign Up
             <input
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"

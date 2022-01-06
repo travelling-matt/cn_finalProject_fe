@@ -7,9 +7,9 @@ import { tokenFetch } from "./utils";
 const App = () => {
   const [user, setUser] = useState();
 
-  // useEffect(() => {
-  //   tokenFetch(setUser);
-  // }, []);
+  useEffect(() => {
+    tokenFetch(setUser);
+  }, []);
 
   return (
     <div className="App">

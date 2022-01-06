@@ -33,7 +33,8 @@ export const loginFetch = async (email, password, setUser) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
             method: "POST",
-            headers: JSON.stringify({
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
                 email,
                 password,
             }),
