@@ -1,23 +1,13 @@
-import './header.css'
+import './Header.css'
 
-
-export const Headers = () =>{
+export const Header = () =>{
     return(
-        
-
         <header className="header">
             <div className="nav-bar">
                 <span>Search Cocktails</span>
-              
-                    <span>About</span>
-               
+                <span>About</span>
                 <span>My Bar</span>
             </div>
-
-
-
-
-
         </header>
     )
 }
