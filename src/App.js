@@ -4,6 +4,10 @@ import './App.css';
 import { Login } from "./components/login";
 import { tokenFetch } from "./utils";
 
+import { Headers } from './components/Header/header';
+import { Layout } from './components/Layout/layout';
+import './styles/global.css';
+
 const App = () => {
   const [user, setUser] = useState();
 
@@ -13,10 +17,16 @@ const App = () => {
 
   return (
     <div className="App">
+      <Headers />
+      <Layout />
+      
       {!user ? 
         <Login setUser={setUser} /> 
         : 
         <p>Welcome, you are logged in</p>}    
+
+      
+
     </div>
   );
 };
