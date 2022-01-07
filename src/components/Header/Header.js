@@ -4,31 +4,18 @@ import { HeaderButton } from '../HeaderButton/HeaderButton.js';
 // This component is the Header at the top of the main page
 // Contains a HeaderButton component for each of the Pages available on the website
 
-export const Header = () =>{
-
-    const aboutClicked = () => {
-        console.log("About clicked");
-    }
-
-    const myBarClicked = () => {
-        console.log("MyBar Clicked");
-    }
-
-    const searchClicked = () => {
-        console.log("Search Clicked");
-    }
-
+export const Header = (props) =>{
     return(
         <header className="header">
             <div className="nav-bar">
-                <HeaderButton buttonName="About" clickFunction={aboutClicked}/>
-                <HeaderButton buttonName="MyBar" clickFunction={myBarClicked}/>
-                <HeaderButton buttonName="Search" clickFunction={searchClicked}/>
+                <HeaderButton buttonName="About" clickFunction={props.aboutClicked}/>
+                <HeaderButton buttonName="MyBar" clickFunction={props.myBarClicked}/>
+                <HeaderButton buttonName="Search" clickFunction={props.searchClicked}/>
                 <div>
-                    <div className='button'>
+                    <div className='button' onClick={props.signInClicked}>
                         <span className='loginButton'>Log in</span>
                     </div>
-                    <div className='button'>
+                    <div className='button' onClick={props.registerClicked}>
                         <span className='loginButton'>Register</span>
                     </div>
                 </div>

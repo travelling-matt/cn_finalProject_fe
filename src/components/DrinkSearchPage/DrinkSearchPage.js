@@ -3,7 +3,7 @@ import './DrinkSearchPage.css';
 import { drinksFetch, invertedIngredientsFetch } from '../../utils/index.js';
 import { DrinkTile } from '../DrinkTile/DrinkTile.js';
 
-import React, {useState, useEffect} from 'react';
+import { useState } from 'react';
 
 // This would contain elements specific to the DrinkSearchPage
 // First element would be something to specify the search parameters
