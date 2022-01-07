@@ -4,7 +4,7 @@ import { Header } from './components/Header/Header';
 import { Layout } from './components/Layout/Layout';
 import { SignIn } from "./components/SignIn/SignIn";
 import { Register } from "./components/Register/Register";
-import { MyBar } from "./components/my.bar";
+import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage";
 
 // import { tokenFetch } from "./utils";
 
@@ -19,6 +19,7 @@ const App = () =>{
      <Layout/>
      <SignIn setUser={setUser}/>
      <Register setUser={setUser}/>
+     <DrinkSearchPage/>
     </div>
   );
 };
