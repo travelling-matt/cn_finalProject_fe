@@ -50,3 +50,32 @@ export const loginFetch = async (email, password, setUser) => {
         console.log(error);
     }
 };
+
+export const drinksFetch = async () => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}fetchDrinks`, {
+            method: "GET",
+            headers: { "Content-Type" : "application/json" }
+        });
+        const data = await response.json();
+        return data.drinks;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const invertedIngredientsFetch = async (userIngredients) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}fetchIngredients`, {
+            method: "POST",
+            headers: { "Content-Type" : "application/json" },
+            body: JSON.stringify({
+                userIngredients
+            }),
+        });
+        const data = await response.json();
+        return data.ingredients;
+    } catch (error) {
+        console.log(error);
+    }
+}

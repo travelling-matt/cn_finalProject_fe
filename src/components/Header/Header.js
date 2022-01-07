@@ -6,10 +6,33 @@ import { HeaderButton } from '../HeaderButton/HeaderButton.js';
 
 export const Header = () =>{
 
+    const aboutClicked = () => {
+        console.log("About clicked");
+    }
+
+    const myBarClicked = () => {
+        console.log("MyBar Clicked");
+    }
+
+    const searchClicked = () => {
+        console.log("Search Clicked");
+    }
 
     return(
-       
-       <HeaderButton/>
-
+        <header className="header">
+            <div className="nav-bar">
+                <HeaderButton buttonName="About" clickFunction={aboutClicked}/>
+                <HeaderButton buttonName="MyBar" clickFunction={myBarClicked}/>
+                <HeaderButton buttonName="Search" clickFunction={searchClicked}/>
+                <div>
+                    <div className='button'>
+                        <span className='loginButton'>Log in</span>
+                    </div>
+                    <div className='button'>
+                        <span className='loginButton'>Register</span>
+                    </div>
+                </div>
+            </div>
+        </header>
     )
 }
