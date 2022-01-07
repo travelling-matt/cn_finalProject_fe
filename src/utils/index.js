@@ -42,9 +42,10 @@ export const loginFetch = async (email, password, setUser) => {
             }),
         });
         const data = await response.json();
-        setUser(data.user);
+        setUser(data);
         console.log(data.user)
         console.log(data)
+        console.log(data.message)
         localStorage.setItem("myToken", data.token);
     } catch (error) {
         console.log(error);

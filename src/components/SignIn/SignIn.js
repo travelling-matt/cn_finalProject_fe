@@ -20,7 +20,6 @@ export const SignIn = ({ setUser }) => {
         }
     };
 
-//export const SignIn = () =>{
     return(
         <div>
             <form onSubmit={loginHandler}>Log in
