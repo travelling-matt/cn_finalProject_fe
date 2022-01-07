@@ -3,12 +3,6 @@ import './SignIn.css'
 // This component should contain 2 TextInput components (Email, Password) and a SubmitButton component
 // Submitting the form should check the MongoDB for verification of the users existance and correct password
 
-<<<<<<< HEAD
-export const SignIn = () =>{
-    return(
-        <div>
-
-=======
 import { useState } from "react";
 import { loginFetch } from '../../utils';
 
@@ -41,7 +35,6 @@ export const SignIn = ({ setUser }) => {
                 />
                 <button type="submit">Login</button>
             </form>
->>>>>>> 13802cfdd49d4b09ed143f128ba6cb56d4567a44
         </div>
     )
 }

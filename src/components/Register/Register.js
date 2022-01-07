@@ -3,15 +3,6 @@ import './Register.css'
 // This component should present the user with 3 TextInput components (Email, Password, ConfirmPassword)
 // The final component should be a SubmitButton component so the user can submit the form to the MongoDB
 
-<<<<<<< HEAD
-export const Register = () =>{
-    return(
-        <div>
-
-        </div>
-    )
-}
-=======
 import { useState } from "react";
 import { signUpFetch } from "../../utils";
 
@@ -45,4 +36,3 @@ export const Register = ({ setUser }) => {
         </div>
     )
 };
->>>>>>> 13802cfdd49d4b09ed143f128ba6cb56d4567a44
