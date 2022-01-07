@@ -1,12 +1,39 @@
-import './HeaderButton.css'
+import './headerButton.css';
 
-// This component should contain the title of the page for use in the Header component
-// Requires an OnClick event to be returned to the main page so the content can be swapped out appropriately
+export const HeaderButton = (props) =>{
 
-export const HeaderButton = () =>{
-    return(
-        <div>
+            return (
+        <>
+            <header className='nav-bar'>
 
-        </div>
-    )
-}
+            <span>Search Cocktails</span>
+            <span>About</span>
+            <span>My Bar</span>
+            
+            <section className='btn'>
+                
+            <div className='button'>
+                <span className='loginButton'>Log in</span>
+            </div>
+
+            <div className='button'>
+                <span className='loginButton'>Register</span>
+            </div>
+
+            </section>
+            
+               
+            </header>
+            <div className="buttonContainer" onClick={props.clickFunction}>
+                    <h3 >{props.buttonName}</h3>
+                </div>
+          
+               
+               
+        </>
+        
+          )
+        }
+
+    
+
