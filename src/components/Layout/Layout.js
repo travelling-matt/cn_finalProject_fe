@@ -3,7 +3,7 @@ import './Layout.css';
 export const Layout =() =>{
 
     return(
-        <>
+        <div>
         <section className="container">
 
             <div className='drink-info'>
@@ -31,6 +31,6 @@ export const Layout =() =>{
         
         
         
-        </>
+        </div>
     )
 }
