@@ -1,11 +1,11 @@
-import { Headers } from './components/Header/header';
+import { Header } from './components/Header/Header';
 import { Layout } from './components/Layout/Layout';
 import './styles/global.css';
 
 const App = () =>{
   return (
     <div className="App">
-     <Headers/>
+     <Header/>
      <Layout/>
     </div>
   );

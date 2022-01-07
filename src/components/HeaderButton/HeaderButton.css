@@ -1,0 +1,4 @@
+.buttonContainer:hover {
+    cursor:not-allowed;
+    width: 30%;
+}
