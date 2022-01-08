@@ -6,6 +6,7 @@ import { Register } from "./components/Register/Register";
 import { AboutPage } from "./components/AboutPage/AboutPage.js";
 import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage.js";
 import { MyBarPage } from "./components/MyBarPage/MyBarPage.js";
+//import { IngredientInput } from "./components/TextInput/TextInput";
 
 // import { tokenFetch } from "./utils";
 
@@ -14,6 +15,27 @@ import './styles/global.css';
 const App = () =>{
   const [user, setUser] = useState();
   const [currentPage, setCurrentPage] = useState();
+   {/* added by matt */}
+  const [ingredients,setIngredients] = useState([]);
+  const [input, setInput] = useState("");
+
+  const changeHandler =(e) => {
+    e.preventDefault();
+    setInput(e.target.value)
+};
+
+const addHandler = () => {
+    let addIngredient = [...ingredients] //pulls in current ingredient useState
+    addIngredient.push(input) //adds new ingredient
+    setIngredients(addIngredients) //pushes old ingredients + new ingredient to ingredient useState
+};
+
+const removeHandler = () => {
+    let removeIngredient = [...ingredients]
+    removeIngredient.splice(index, 1)//check what this removes
+    setIngredients(removeIngredient)
+};
+  {/* added by matt */}
 
   const aboutClicked = () => {
     setCurrentPage("About");
@@ -38,7 +60,8 @@ const App = () =>{
   const getCurrentPage = () => {
     switch(currentPage) {
       case "About":
-        return <AboutPage/>;
+        //return <AboutPage/>;
+        return <IngredientInput/>;
       case "MyBar":
         return <MyBarPage/>;
       case "DrinkSearch":
@@ -60,6 +83,24 @@ const App = () =>{
       <div>
         {getCurrentPage()}
       </div>
+      {/* added by matt */}
+      <div>
+                <h1>Add your spirits and mixers here</h1>
+                <input>
+                    onChange={changeHandler}
+                </input>
+                <button onClick={addHandler}>Add to MyBar</button>
+            </div>
+            <div>
+                {ingredients.map((ingredient, index) => {
+                    return (
+                        <div key={index}>{ingredient}
+                            <button onClick={() => removeHandler(index)}>Remove Ingredient</button>
+                        </div>
+                    )
+                })}
+            </div>
+      {/* added by matt */}
     </div>
   );
 };
