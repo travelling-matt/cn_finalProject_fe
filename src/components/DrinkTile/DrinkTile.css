@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  float: left;
+  justify-content: space-around;
+  align-items: center;
+  height: 10rem;
+  width: 12rem;
+  position: relative;
+  margin-top: 30px;
+  border-radius: 15px;
+  background: #6d8299;
+  margin: 40px;
+}
+
+.drink-card {
+  align-items: center;
+}
+
+img {
+  background: #6d8299;
+  border-radius: 15px;
+  height: 200px;
+  width: 200px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+h1 {
+  color: #c0c0c0;
+  text-align: center;
+  font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
+  font-size: 10px;
+  cursor: pointer;
+}

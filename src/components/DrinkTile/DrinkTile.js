@@ -5,9 +5,16 @@ import './DrinkTile.css'
 
 export const DrinkTile = (props) =>{
     return(
-        <div>
-            <img src={props.drinkImg}/>
-            <h3>{props.drinkName}</h3>
+        <div  className="container"> 
+
+            <div className="drink-card">
+            <img src={props.drinkImg}/>         
+            <h1>{props.drinkName}</h1>
+            <hi>{props.ingredients}</hi>
+         
+        </div>
+            
+        
         </div>
     )
 }
