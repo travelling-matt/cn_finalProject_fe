@@ -1,3 +1,4 @@
+
 import './DrinkTile.css'
 
 // This component should contain an image and drink name
@@ -5,16 +6,27 @@ import './DrinkTile.css'
 
 export const DrinkTile = (props) =>{
     return(
-        <div  className="container"> 
-
-            <div className="drink-card">
-            <img src={props.drinkImg}/>         
-            <h1>{props.drinkName}</h1>
-            <hi>{props.ingredients}</hi>
-         
-        </div>
-            
         
-        </div>
+     
+        <section className="card-container">
+           <div className="img-container">
+            <img src={props.drinkImg} alt="drink-image"/>
+            </div>
+             
+            <section className="card-content">
+            <div className="drink-name">     
+            <h1>{props.drinkName}</h1>
+            </div>
+              
+               
+            <div className="info">
+            <p>Descriptions go .Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt lacus quam, 
+              a vulputate ligula tristique non. Vestibulum semper velit.</p>
+            </div>  
+            </section>
+
+        </section>
+    
     )
+
 }

@@ -74,12 +74,19 @@ export const DrinkSearchPage = () =>{
     }
 
     return(
-        <div>
-            <h3 onClick={findUsingMyBar}>Find Cocktails Using MyBar</h3>
+        <>
+        <div className='search-button'>
+        <h3 onClick={findUsingMyBar}>Find Cocktails Using MyBar</h3>
+        </div>
+        
+        <div className='drink-layout'>
+           
+            
             {possibleDrinks.map((item, index) => {
                 if(index < 20)
                 return <DrinkTile key={index} drinkImg={item.thumbnailURL} drinkName={item.name}/>
             })}       
         </div>
+        </>
     )
 }
