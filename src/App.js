@@ -7,6 +7,7 @@ import { AboutPage } from "./components/AboutPage/AboutPage.js";
 import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage.js";
 import { MyBarPage } from "./components/MyBarPage/MyBarPage.js";
 import { IngredientInput } from "./components/TextInput/TextInput";
+import { addIngredientsFetch } from "./utils"
 
 // import { tokenFetch } from "./utils";
 
@@ -16,7 +17,7 @@ const App = () =>{
   const [user, setUser] = useState();
   const [currentPage, setCurrentPage] = useState();
    {/* added by matt */}
-  const [ingredients,setIngredients] = useState([]);
+  const [ingredients,setIngredients] = useState(["vodka", "whisky"]);
   const [input, setInput] = useState("");
   {/* added by matt */}
 
@@ -66,10 +67,7 @@ const App = () =>{
       <div>
         {getCurrentPage()}
       </div>
-      {/* added by matt */}
-      <IngredientInput setIngredients={setIngredients} user={user} setInput={setInput} />
-      {/* added by matt */}
-    </div>
+      </div>
   );
 };
 
