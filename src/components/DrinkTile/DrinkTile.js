@@ -19,10 +19,7 @@ export const DrinkTile = (props) =>{
             </div>
               
                
-            <div className="info">
-            <p>Descriptions go .Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt lacus quam, 
-              a vulputate ligula tristique non. Vestibulum semper velit.</p>
-            </div>  
+             
             </section>
 
         </section>
