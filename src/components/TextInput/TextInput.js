@@ -3,6 +3,7 @@ import './TextInput.css'
 // This component should be a text input field for use in the Register and Sign In page components
 
 import { useState } from "react";
+import { addIngredientsFetch } from '../../utils';
 
 // const [ingredients, setIngredients] = useState([])
 // const [input, setInput] = useState("")
@@ -26,17 +27,40 @@ import { useState } from "react";
 //     setIngredients(removeIngredient)
 // }
 
-export const IngredientInput = () => {
+export const IngredientInput = (user) => {
     const [ingredients, setIngredients] = useState([])
     const [input, setInput] = useState("")
 
    
-    
-    const addHandler = () => {
-        let addIngredient = [...ingredients] //pulls in current ingredient useState
-        addIngredient.push(input) //adds new ingredient
-        setIngredients(addIngredient) //pushes old ingredients + new ingredient to ingredient useState
+    //local add
+    // const addHandler = () => {
+    //     let addIngredient = [...ingredients] //pulls in current ingredient useState
+    //     addIngredient.push(input) //adds new ingredient
+    //     setIngredients(addIngredient) //pushes old ingredients + new ingredient to ingredient useState
+    // };
+
+     const addIngredientHandler = async (e) => {
+        e.preventDefault();
+        let addIngredient = await [...ingredients] //pulls in current ingredient useState
+        await addIngredient.push(input) //adds new ingredient
+        await setIngredients(addIngredient) //pushes old ingredients + new ingredient to ingredient useState
+        try {
+            addIngredientsFetch(user, ingredients);
+        }catch (error) {
+            console.log(error);
+        }
     };
+
+
+    // const addIngredientHandler = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         addIngredientFetch(email, input, setUser);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+
     
     const removeHandler = (index) => {
         let removeIngredient = [...ingredients]
@@ -51,7 +75,7 @@ export const IngredientInput = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="add ingredient here"
         />
-          <button onClick={addHandler}>Add to MyBar</button>
+          <button onClick={addIngredientHandler}>Add to MyBar</button>
       
       
         {ingredients.map((ingredient, index) => {

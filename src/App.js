@@ -67,7 +67,7 @@ const App = () =>{
         {getCurrentPage()}
       </div>
       {/* added by matt */}
-      <IngredientInput/>
+      <IngredientInput setIngredients={setIngredients} user={user} setInput={setInput} />
       {/* added by matt */}
     </div>
   );

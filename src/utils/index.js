@@ -79,3 +79,22 @@ export const invertedIngredientsFetch = async (userIngredients) => {
         console.log(error);
     }
 }
+
+export const addIngredientsFetch = async (user, ingredients) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}addIngredients`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user,
+                ingredients
+            }),
+        });
+        const data = await response.json();
+        // setUser(data.user);
+        // console.log(data.user)
+        console.log(data)
+    } catch (error) {
+        console.log(error);
+    }
+};
