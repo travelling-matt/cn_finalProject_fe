@@ -1,42 +1,47 @@
 .button {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: #fff;
-    font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
 }
-  
+
 .loginButton {
-    text-align: center;
-    margin-top: 10px;
-    width: 70px;
-    height: 20px;
-    border: none;
-    border-radius: 3px;
-    font-weight: normal;
-    background-color: #6d8299;
-    font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
-    opacity: 0.6;
+  text-align: center;
+  margin-top: 10px;
+  width: 70px;
+  height: 20px;
+  border: none;
+  border-radius: 3px;
+  font-weight: lighter;
+  background-color: #6d8299;
+  font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
+  opacity: 0.6;
 }
 
 .loginButton:hover {
-    background-color: #c6cdd4;
-    cursor: pointer;
+  background-color: #c6cdd4;
+  cursor: pointer;
 }
 
 .nav-bar {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
-    font-size: 30px;
-    font-weight: lighter;
-    color: #c0c0c0;
+  margin-top: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+h3 {
+  font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
+  font-weight: lighter;
+  color: #c0c0c0;
 }
 
 @media screen and (max-width: 800px) {
-    .nav-bar {
-      font-size: 20px;
-    }
+  .nav-bar {
+    font-size: 20px;
+  }
 }

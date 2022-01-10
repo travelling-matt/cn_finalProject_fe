@@ -1,0 +1,20 @@
+.drink-layout {
+  margin-top: 30px;
+  display: grid;
+  gap: 8rem;
+  flex-direction: row;
+  grid-template-columns: 4fr;
+  justify-content: center;
+}
+
+.search-button {
+  margin-top: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 500px) {
+  .drink-layout {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
+  }
+}
