@@ -36,7 +36,6 @@ export const MyBarPage = () =>{
                 break;
         }
         setIngredients(list);
-        this.forceUpdate();
     }
 
     return(

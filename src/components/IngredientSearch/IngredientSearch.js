@@ -41,7 +41,8 @@ export class IngredientSearch extends Component {
             return typeof item.name == 'string' && item.name.toLowerCase().indexOf(filterText.toLowerCase()) > -1;
         });
 
-        this.hideUserIngredients(result);
+        //this.hideUserIngredients(result);
+        this.setState({filteredIngredientsList: result});
     }
 
     hideUserIngredients = () => {
