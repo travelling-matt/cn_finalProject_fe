@@ -92,9 +92,8 @@ export const addIngredientsFetch = async (user, ingredients) => {
         });
         const data = await response.json();
         // setUser(data.user);
-        // console.log(data.user)
         console.log(data)
     } catch (error) {
-        console.log(error);
+        console.log(error, "fetch error");
     }
 };

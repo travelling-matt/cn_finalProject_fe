@@ -4,6 +4,7 @@ import './TextInput.css'
 
 import { useState } from "react";
 import { addIngredientsFetch } from '../../utils';
+import App from '../../App';
 
 // const [ingredients, setIngredients] = useState([])
 // const [input, setInput] = useState("")
@@ -47,7 +48,7 @@ export const IngredientInput = (user) => {
         try {
             addIngredientsFetch(user, ingredients);
         }catch (error) {
-            console.log(error);
+            console.log(error, "from textInput.js");
         }
     };
 
@@ -89,10 +90,8 @@ export const IngredientInput = (user) => {
     )
 }
 
-// export const TextInput = () =>{
-//     return(
-//         <div>
+//add to App.js to test
 
-//         </div>
-//     )
-// }
+{/* added by matt */}
+      {/* <IngredientInput setIngredients={setIngredients} user={user} setInput={setInput} /> */}
+      {/* added by matt */}
