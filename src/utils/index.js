@@ -97,3 +97,19 @@ export const addIngredientsFetch = async (user, ingredients) => {
         console.log(error, "fetch error");
     }
 };
+
+export const userIngredientsFetch = async (user) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}fetchUserIngredients`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user
+            }),
+        });
+        const data = await response.json();
+        return data.ingredients;
+    } catch (error) {
+        console.log(error);
+    }
+};
