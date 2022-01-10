@@ -6,7 +6,6 @@ import { Register } from "./components/Register/Register";
 import { AboutPage } from "./components/AboutPage/AboutPage.js";
 import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage.js";
 import { MyBarPage } from "./components/MyBarPage/MyBarPage.js";
-import { IngredientInput } from "./components/TextInput/TextInput";
 
 // import { tokenFetch } from "./utils";
 
@@ -15,10 +14,6 @@ import './styles/global.css';
 const App = () =>{
   const [user, setUser] = useState();
   const [currentPage, setCurrentPage] = useState();
-   {/* added by matt */}
-  const [ingredients,setIngredients] = useState([]);
-  const [input, setInput] = useState("");
-  {/* added by matt */}
 
   const aboutClicked = () => {
     setCurrentPage("About");
@@ -66,9 +61,6 @@ const App = () =>{
       <div>
         {getCurrentPage()}
       </div>
-      {/* added by matt */}
-      <IngredientInput setIngredients={setIngredients} user={user} setInput={setInput} />
-      {/* added by matt */}
     </div>
   );
 };
