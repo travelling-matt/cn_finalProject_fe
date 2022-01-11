@@ -14,6 +14,7 @@ export const DrinkSearchPage = (props) =>{
     const [possibleDrinks, setPossibleDrinks] = useState([]);
 
     const findUsingMyBar = async () => {
+        console.log("Finding Cocktails");
         const userIngredients = await userIngredientsFetch(props.user);
         console.log(userIngredients);
         let allDrinkObjects = await drinksFetch();

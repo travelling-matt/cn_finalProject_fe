@@ -9,7 +9,7 @@ import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage.js
 import { MyBarPage } from "./components/MyBarPage/MyBarPage.js";
 import { BrowseCocktails } from "./components/BrowseCocktails/BrowseCocktails.js";
 
-// import { tokenFetch } from "./utils";
+import { tokenFetch } from "./utils";
 
 import './styles/global.css';
 
@@ -45,11 +45,10 @@ const App = () =>{
     switch(currentPage) {
       case "About":
         return <AboutPage/>;
-        //return <IngredientInput/>;
       case "MyBar":
         return <MyBarPage user={user}/>;
       case "DrinkSearch":
-        return <DrinkSearchPage/>;
+        return <DrinkSearchPage user={user}/>;
       case "SignIn":
         return <SignIn setUser={setUser}/>;
       case "Register":
@@ -58,6 +57,10 @@ const App = () =>{
         return <BrowseCocktails/>;
     }
   }
+
+  useEffect(() => {
+    tokenFetch();
+  }, []);
 
   return (
     <div className="App">
