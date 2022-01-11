@@ -1,19 +1,9 @@
+ h1{color:white;
+font-size: 25px;}
 
-
-<<<<<<< HEAD
-.images{
-=======
-.images{width:30vw;
->>>>>>> main
-    display: flex;
-     
-   margin-right: auto;
-   margin-left: auto;}
-   p,li{display: flex;  
-       margin-right: auto;
-       margin-left: auto;
-   width:40vw;}
-   h1{
-   text-align: center;
-   }
-   
+ .latest, .popular{
+display: flex;
+flex-wrap: wrap;
+}
+.header{text-align:  center;
+justify-items: center;}
