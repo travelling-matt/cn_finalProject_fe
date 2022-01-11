@@ -60,7 +60,7 @@
   background-color: #c6cdd4;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
   .signIn-form {
     padding-bottom: 60px;
     width: 20rem;
