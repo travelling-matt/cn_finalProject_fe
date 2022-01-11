@@ -7,12 +7,15 @@ export const AboutPage = () =>{
     return(
         <div className="content" alt="about-us">
             <title>About Us</title>
-            <h3>Tend the Bar</h3>
+            <h1>Tend the Bar</h1>
+            <br></br>
             <p>Welcome to Tend the Bar where you can create your own amazing cocktails using ingredients you have at home.
             Using our free cocktail generator you will find easy recipes to create your very own fantastic cocktails. We have over 700 cocktail recipes! 
             You can also search for popular cocktails or latest cocktails.
             </p>
-            <h3>How to use the cocktail generator</h3>
+            <br></br>
+            <h1>How to use the cocktail generator</h1>
+            
             <div className="instructions">
             <ol >
             <li>In the search box, type in the ingredients you have. Your ingredients will be saved in 'My Bar'.</li>
