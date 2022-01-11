@@ -1,15 +1,14 @@
 .search-container {
   width: 100%;
-  margin-top: 40%;
-  margin-left: 25%;
+  height: 100%;
 }
 
-.ingredient-search-content {
+.ingredient-search-container {
   overflow-x: hidden;
   margin-top: 30px;
 
-  max-height: 70vh;
-  min-height: 70vh;
+  max-height: 80vh;
+  min-height: 80vh;
   overflow-y: scroll;
 }
 
