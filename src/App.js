@@ -15,7 +15,7 @@ import './styles/global.css';
 
 const App = () =>{
   const [user, setUser] = useState();
-  const [currentPage, setCurrentPage] = useState();
+  const [currentPage, setCurrentPage] = useState("About");
 
   const aboutClicked = () => {
     setCurrentPage("About");
