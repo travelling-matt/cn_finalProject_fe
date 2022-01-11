@@ -3,20 +3,21 @@ import { DrinkTile, } from "../DrinkTile/DrinkTile";
 import './BrowseCocktails.css';
 
 export const BrowseCocktails = () => {
-  const [item, setitem] = useState([]);
-  const [item1, setitem1] = useState([]);
-  const [item2, setitem2] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [loading1, setLoading1] = useState(false);
-  const [loading2, setLoading2] = useState(false);
+  const [popularCocktails, setPopularCocktails] = useState([]);
+  const [latestCocktails, setLatestCocktails] = useState([]);
+  const [cocktailsByLetter, setCocktailsByLetter] = useState([]);
+  const [popularLoading, setPopularLoading] = useState(false);
+  const [latestLoading, setLatestLoading] = useState(false);
+  const [byLetterLoading, setByLetterLoading] = useState(false);
 
   const [error, setError] = useState({
     error: false,
     message: "",
   });
-  const handler = async () => {
+  
+  const getPopularCocktails = async () => {
     try {
-      setLoading(true);
+      setPopularLoading(true);
       const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/popular.php");
       console.log(response);
       console.log("fetching")
@@ -24,109 +25,97 @@ export const BrowseCocktails = () => {
         throw new Error("not fetching");
       }
       const data = await response.json();
-      setitem(data.drinks)
+      setPopularCocktails(data.drinks)
       console.log("API info", data.drinks);
-      setLoading(false);
+      setPopularLoading(false);
     } catch (e) {
       setError({ error: true, message: e.message });
     }
   };
 
-  const handler1 = async () => {
+  const getLatestCocktails = async () => {
     try {
-      setLoading1(true);
-      const response1 = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/latest.php");
-      console.log(response1);
+      setLatestLoading(true);
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/latest.php");
+      console.log(response);
       console.log("fetching")
-      if (response1.status !== 200) {
+      if (response.status !== 200) {
         throw new Error("not fetching");
       }
-      const data1 = await response1.json();
-      setitem1(data1.drinks)
-      console.log("API info", data1.drinks);
-      setLoading1(false);
+      const data = await response.json();
+      setLatestCocktails(data.drinks)
+      console.log("API info", data.drinks);
+      setLatestLoading(false);
     } catch (e) {
       setError({ error: true, message: e.message });
     }
   };
-  const handler2 = async (e) => {
-    e.preventDefault()
+
+  const getCocktailsByLetter = async (letter) => {
     try {
-        
-      setLoading2(true);
-      const response2 = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=a");
-      console.log(response2);
+      setCocktailsByLetter([]);
+      setByLetterLoading(true);
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=${letter}`);
+      console.log(response);
       console.log("fetching")
-      if (response2.status !== 200) {
+      if (response.status !== 200) {
         throw new Error("not fetching");
       }
-      const data2 = await response2.json();
-      setitem2(data2.drinks)
-      console.log("API info", data2.drinks);
-      setLoading2(false);
+      const data = await response.json();
+      setCocktailsByLetter(data.drinks)
+      console.log("API info", data.drinks);
+      setByLetterLoading(false);
     } catch (e) {
       setError({ error: true, message: e.message });
     }
   };
   
-
-
   useEffect(() => {
-    handler();
+    getPopularCocktails();
+    getLatestCocktails();
   }, []);
-  useEffect(() => {
-    handler1();
-  }, []);
-  useEffect(() => {
-    handler2();
-  }, []);
-
 
   if (error.error) {
     return <h1>{error.message}</h1>;
   }
   return (
-    <div>
-      {handler}      
-      {loading ? (
+    <div>   
+      {popularLoading ? (
         <p>loading...</p>
       ) : (
         <div >
            <header className="header"><h1>Popular Cocktails</h1></header>
            <div className=' popular'>
-          {item.map((item, index) => {
+          {popularCocktails.map((item, index) => {
             return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
           })}</div>
         </div>
       )}
-
-      {handler1}      
-      {loading1 ? (
+  
+      {latestLoading ? (
         <p>loading...</p>
       ) : (
         <div >
           <hr></hr>
            <header className="header"><h1>Latest Cocktails</h1></header>
            <div className='latest '>
-          {item1.map((item1, index) => {
-            return <DrinkTile key={index} drinkImg={item1.strDrinkThumb} drinkName={item1.strDrink} />
+          {latestCocktails.map((item, index) => {
+            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
           })}</div>
         </div>
-      )}
+        )}
 
-      {loading2 ? (
-        <p>loading...</p>
-      ) : (
-        <div >
-          <hr></hr>
-           <header className="header"><h1> Cocktails A-Z</h1></header>
-           <div class="letter"><p onClick={handler2}>A</p>
-          {item2.map((item2, index) => {
-            return <DrinkTile key={index} drinkImg={item2.strDrinkThumb} drinkName={item2.strDrink} />
+
+      <div >
+        <hr></hr>
+          <header className="header"><h1> Cocktails A-Z</h1></header>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("a")}>A</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("b")}>B</h1>
+          <div className="letter">
+            {cocktailsByLetter.map((item, index) => {
+            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
           })}</div>
-        </div>
-      )}
-            
+      </div>      
     </div>
   );
 }
