@@ -59,7 +59,7 @@ const App = () =>{
   }
 
   useEffect(() => {
-    tokenFetch();
+    tokenFetch(setUser);
   }, []);
 
   return (
