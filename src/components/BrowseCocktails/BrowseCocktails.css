@@ -1,9 +1,19 @@
  h1{color:aliceblue;
 font-size: 30px;}
+p{color: aliceblue;
+font-size: 25px;
 
- .latest, .popular{
+cursor: pointer;}
+
+ .letter,.latest, .popular{
 display: flex;
 flex-wrap: wrap;
 }
 .header{text-align:  center;
 justify-items: center;}
+.letter{padding-left:30px;
+margin-bottom:20px;
+
+
+
+}
