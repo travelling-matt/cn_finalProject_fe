@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { DrinkTile } from "../DrinkTile/DrinkTile";
 
 import './PopularCocktails.css';
 
@@ -37,6 +38,9 @@ setitem(data.drinks)
   if (error.error) {
     return <h1>{error.message}</h1>;
   }
+  /*return <div> <h1>{item.strDrink}</h1><img className='images'key={index} src={item.strDrinkThumb}alt="cocktails"/>
+  <p>Instructions: {item.strInstructions}</p></div>*/
+
   return (
     <div>
       <header className="title"><button onClick={handler}>List Latest Cocktails</button></header>
@@ -45,8 +49,7 @@ setitem(data.drinks)
       ) : (
         <div className='main'>
            {item.map((item, index) => {
-        return <div> <h1>{item.strDrink}</h1><img className='images'key={index} src={item.strDrinkThumb}alt="cocktails"/>
-        <p>Instructions: {item.strInstructions}</p></div>
+             return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink}/>
         })}
         </div>
       )}

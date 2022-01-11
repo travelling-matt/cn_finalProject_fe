@@ -19,11 +19,6 @@
   opacity: 0.6;
 }
 
-.loginButton:hover {
-  background-color: #c6cdd4;
-  cursor: pointer;
-}
-
 .nav-bar {
   margin-top: 30px;
   padding: 10px;
@@ -42,6 +37,6 @@ h3 {
 
 @media screen and (max-width: 800px) {
   .nav-bar {
-    font-size: 20px;
+    font-size: 25px;
   }
 }

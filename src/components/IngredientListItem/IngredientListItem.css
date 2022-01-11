@@ -1,0 +1,17 @@
+.ingredient-list-item {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: inherit;
+}
+
+.add-button {
+    height: 90%;
+    width: 72px;
+    background-color: blue;
+}
+
+.plus {
+    font-size: 52pt;
+    text-align: center;
+}

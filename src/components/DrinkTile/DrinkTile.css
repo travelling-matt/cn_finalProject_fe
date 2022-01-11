@@ -1,44 +1,43 @@
+/*Displays the drink's img and name*/
 .card-container {
   margin-top: 30px;
   margin: 20px;
   width: 250px;
   overflow: hidden;
-  box-shadow: 0px 0px 15px -15px;
 }
 .card-container:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 15px 0px;
 }
 
 /* img styling*/
-.img-container img {
+.img-container {
+  align-items: center;
   overflow: hidden;
   height: 200px;
   background-color: #6d8299;
   border-radius: 10%;
-  padding: 10px;
-  margin: 1rem;
+  padding: 15px 4px 30px 15px;
+  margin: 0;
+  width: 85%;
 }
 
 img {
+  border-radius: 10%;
+  height: 200px;
   cursor: pointer;
 }
 
-/* Description styling */
-.card-content {
-  margin: 1rem;
-  margin-top: 0.5rem;
-}
-
 .drink-name {
-  margin-bottom: 0.5rem;
+  text-align: center;
+
+  background-color: #6d8299;
+  color: #fff;
 }
 
 /* Reseting default value*/
 h1,
 p {
   font-size: 20px;
-  color: #c0c0c0;
   margin: 0;
   padding: 0;
 }

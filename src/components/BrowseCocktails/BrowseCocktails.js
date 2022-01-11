@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import { useEffect, useState } from "react";
 
 import './BrowseCocktails.css';

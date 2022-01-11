@@ -6,22 +6,11 @@ import './DrinkTile.css'
 
 export const DrinkTile = (props) =>{
     return(
-        
-     
         <section className="card-container">
            <div className="img-container">
-            <img src={props.drinkImg} alt="drink-image"/>
+                <img src={props.drinkImg} alt="drink-image"/>
+                <h1 className='drink-name'>{props.drinkName}</h1>
             </div>
-             
-            <section className="card-content">
-            <div className="drink-name">     
-            <h1>{props.drinkName}</h1>
-            </div>
-            
-            </section>
-
         </section>
-    
     )
-
 }
