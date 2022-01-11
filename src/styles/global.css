@@ -1,10 +1,12 @@
 body {
   margin: 0;
   background-image: url(./images/mainImage.jpg);
-  min-height: 200%;
-  max-width: 200%;
+  min-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   display: grid;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
 }

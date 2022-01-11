@@ -20,18 +20,21 @@ export const Register = ({ setUser }) => {
     };
 
     return(
-        <div>
-            <form onSubmit={registerHandler}>Sign Up
-                <input
+
+       
+        <div className='content'> 
+            <form className='form' onSubmit={registerHandler}>
+                 <h1 className='singUp-title'>Sign Up</h1>
+                <input className='signUp-input'
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                 />
-                <input
+                <input className='signUp-input'
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
-                <button type="submit">Submit</button>
+                <button className='submit-btn' type="submit">Submit</button>
             </form>
         </div>
     )

@@ -21,18 +21,19 @@ export const SignIn = ({ setUser }) => {
     };
     
     return(
-        <div>
-            <form onSubmit={loginHandler}>Log in
-                <input
+        <div className='content'>
+            <form className='signIn-form' onSubmit={loginHandler}>
+                <h1 className='signIn-title'>Sign In</h1>
+                <input className='signIn-input'
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                 />
-                <input
+                <input className='signIn-input'
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
-                <button type="submit">Login</button>
+                <button className='login-btn' type="submit">Login</button>
             </form>
         </div>
     )
