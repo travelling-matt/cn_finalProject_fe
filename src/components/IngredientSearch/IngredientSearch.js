@@ -27,7 +27,7 @@ export class IngredientSearch extends Component {
         let ingredients = await invertedIngredientsFetch(['']);
 
         this.setState({completeIngredientsList: ingredients});
-        this.setState({filteredIngredientsList: this.state.completeIngredientsList});        
+        this.setState({filteredIngredientsList: this.state.completeIngredientsList});
     }
 
     filterIngredientsList = (filterText) => {

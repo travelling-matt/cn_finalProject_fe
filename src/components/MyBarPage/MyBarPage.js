@@ -22,7 +22,7 @@ export const MyBarPage = (props) =>{
         switch (action) {
             case 'add':
                 //let listAdd = ingredients;
-                list = ingredients;
+                list = [...ingredients];
                 list.push(state);
                 //setIngredients(listAdd);
                 break;
