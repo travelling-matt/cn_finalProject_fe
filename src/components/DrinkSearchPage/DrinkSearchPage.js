@@ -1,6 +1,6 @@
 import './DrinkSearchPage.css';
 
-import { drinksFetch, invertedIngredientsFetch } from '../../utils/index.js';
+import { drinksFetch, invertedIngredientsFetch, userIngredientsFetch } from '../../utils/index.js';
 import { DrinkTile } from '../DrinkTile/DrinkTile.js';
 
 import { useState } from 'react';
@@ -9,22 +9,17 @@ import { useState } from 'react';
 // First element would be something to specify the search parameters
 // Second element would be a container with a DrinkTile for each returned result
 
-export const DrinkSearchPage = () =>{
+export const DrinkSearchPage = (props) =>{
 
     const [possibleDrinks, setPossibleDrinks] = useState([]);
 
-    const fetchIngredientsFromMyBar = () => {
-        // Do a call to the backend to fetch user's ingredients
-        // Return the list for use in the search function
-        // Second call to the backend to get an inverted list of ingredients
-    }
-
     const findUsingMyBar = async () => {
-        //const userIngredients = fetchIngredientsFromMyBar();
+        const userIngredients = await userIngredientsFetch(props.user);
+        console.log(userIngredients);
         let allDrinkObjects = await drinksFetch();
         let availableDrinks = [];
-        const availableIngredients = ['Orange Juice', 'Vodka', 'Coca-Cola', 'Rum', 'Dark Rum', 'Spiced Rum', 'Coca-Cola', 'Gin', 'Tonic Water', 'Lime', 'Ice'];
-        const missingIngredients = await invertedIngredientsFetch(availableIngredients);
+        //const availableIngredients = ['Orange Juice', 'Vodka', 'Coca-Cola', 'Rum', 'Dark Rum', 'Spiced Rum', 'Coca-Cola', 'Gin', 'Tonic Water', 'Lime', 'Ice'];
+        const missingIngredients = await invertedIngredientsFetch(userIngredients);
 
         // Iterate through every cocktail in the DB
         for(let i = 0; i < allDrinkObjects.length; i++) {
