@@ -46,6 +46,16 @@ setitem(data.drinks)
         <div className='main'>
            {item.map((item, index) => {
         return <div> <h1>{item.strDrink}</h1><img className='images'key={index} src={item.strDrinkThumb}alt="cocktails"/>
+        <p>Ingredients:</p>
+        <ul>
+           <li>{item.strMeasure1} {item.strIngredient1} </li>
+           <li>{item.strMeasure2} {item.strIngredient2}</li>
+           <li>{item.strMeasure3} {item.strIngredient3}</li>
+           <li> {item.strMeasure4} {item.strIngredient4} </li>
+           <li>{item.strMeasure5} {item.strIngredient5} </li>
+           <li>{item.strMeasure6} {item.strIngredient6} </li>
+           <li> {item.strMeasure7} {item.strIngredient7}</li>
+           </ul>         
         <p>Instructions: {item.strInstructions}</p></div>
         })}
         </div>
