@@ -40,8 +40,9 @@ const App = () =>{
     switch(currentPage) {
       case "About":
         return <AboutPage/>;
+        //return <IngredientInput/>;
       case "MyBar":
-        return <MyBarPage/>;
+        return <MyBarPage user={user}/>;
       case "DrinkSearch":
         return <DrinkSearchPage/>;
       case "SignIn":
