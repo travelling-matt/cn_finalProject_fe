@@ -64,6 +64,22 @@ export const drinksFetch = async () => {
     }
 }
 
+export const drinksByLetterFetch = async (letter) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}getAllByLetter`, {
+            method: "POST",
+            headers: { "Content-Type" : "application/json" },
+            body: JSON.stringify({
+                letter
+            }),
+        });
+        const data = await response.json();
+        return data.drinks;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const invertedIngredientsFetch = async (userIngredients) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}fetchIngredients`, {

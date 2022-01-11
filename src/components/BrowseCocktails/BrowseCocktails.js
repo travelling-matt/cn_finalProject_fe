@@ -30,6 +30,14 @@ setitem(data.drinks)
     }
   };
 
+  const fetchAllOfLetter = async (letter) => {
+    try {
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     handler();
   }, []);
