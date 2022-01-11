@@ -9,8 +9,7 @@ export const IngredientListItem = (props) =>{
         props.changeIngredients(
             props.ingredientName,
             "add");
-        }
-    
+    }
 
     return(
         <div className='ingredient-list-item'>

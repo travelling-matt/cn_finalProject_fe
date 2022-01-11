@@ -13,29 +13,20 @@ import { addIngredientsFetch, userIngredientsFetch } from '../../utils';
 export const MyBarPage = (props) =>{
 
     const [ingredients, setIngredients] = useState([]);
-    //const [removeIng, setRemoveIng] = useState();
-    //const [indexToRemove, setIndexToRemove] = useState();
-
-    // await addIngredientsFetch(user, ingredients);
 
     const changeIngredients = async (state, action) => {
         console.log(`${state} ${action}`);
         let list;
         switch (action) {
             case 'add':
-                //let listAdd = ingredients;
                 list = [...ingredients];
                 list.push(state);
-                //setIngredients(listAdd);
                 break;
             case 'remove':
                 const index = ingredients.indexOf(state);
                 list = [...ingredients];
                 if(index > -1)
                     list.splice(index, 1);
-
-                    // list = ingredients.splice(index, 1);
-                //setIngredients(listRemove);
                 break;
             default:
                 break;

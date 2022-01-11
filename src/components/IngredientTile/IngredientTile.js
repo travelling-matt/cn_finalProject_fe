@@ -22,4 +22,3 @@ export const IngredientTile = (props) =>{
         </section>
     )
 }
-
