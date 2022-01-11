@@ -14,12 +14,11 @@ export const DrinkSearchPage = (props) =>{
     const [possibleDrinks, setPossibleDrinks] = useState([]);
 
     const findUsingMyBar = async () => {
-        console.log("Finding Cocktails");
         const userIngredients = await userIngredientsFetch(props.user);
-        console.log(userIngredients);
+
         let allDrinkObjects = await drinksFetch();
         let availableDrinks = [];
-        //const availableIngredients = ['Orange Juice', 'Vodka', 'Coca-Cola', 'Rum', 'Dark Rum', 'Spiced Rum', 'Coca-Cola', 'Gin', 'Tonic Water', 'Lime', 'Ice'];
+
         const missingIngredients = await invertedIngredientsFetch(userIngredients);
 
         // Iterate through every cocktail in the DB
@@ -76,8 +75,6 @@ export const DrinkSearchPage = (props) =>{
         </div>
         
         <div className='drink-layout'>
-           
-            
             {possibleDrinks.map((item, index) => {
                 if(index < 20)
                 return <DrinkTile key={index} drinkImg={item.thumbnailURL} drinkName={item.name}/>

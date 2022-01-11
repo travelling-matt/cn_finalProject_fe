@@ -47,3 +47,50 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
   }
 }
+
+.expanding-box {
+  max-height: 256px;
+  min-height: 256px;
+  height: auto;
+  width: 85vw;
+  margin-top: -40px;
+  padding: 0;
+  position: relative;
+  display: none;
+  overflow: hidden;
+  background-color: #6d8299;
+  position: relative;
+  left: 0;
+}
+
+.shrinkContent {
+  animation-name: shrinkContent;
+  animation-timing-function: ease;
+}
+
+@keyframes shrinkContent {
+  0% { 
+      max-height: 256px;
+      min-height: 256px;
+  }
+  100% { 
+      max-height: 0px;
+      min-height: 0px;
+  }
+}
+
+.expandContent {
+  animation-name: expandContent;
+  animation-timing-function: ease;
+}
+
+@keyframes expandContent {
+  0% { 
+      max-height: 0px;
+      min-height: 0px;
+  }
+  100% { 
+      max-height: 256px;
+      min-height: 256px;
+  }
+}
