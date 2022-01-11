@@ -1,0 +1,12 @@
+.ingredient-search-content {
+    display: flex;
+    width: 100vw;
+}
+
+.my-ingredients{
+    width: 70%;
+}
+
+.ingredient-search-bar {
+    width: 30%;
+}
