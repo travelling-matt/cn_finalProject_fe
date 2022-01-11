@@ -15,7 +15,9 @@ export const IngredientListItem = (props) =>{
     return(
         <div className='ingredient-list-item'>
             <h3 className="ingredient-name">{props.ingredientName}</h3>
-            <div className="add-button" onClick={addIngredient}><h1 className="plus">+</h1></div>
+            <div className="add-button" 
+            onClick={addIngredient}><h1 className="plus">+</h1>
+            </div>
         </div>
     )
 }

@@ -7,7 +7,7 @@ import './DrinkTile.css'
 export const DrinkTile = (props) =>{
     return(
         <section className="card-container">
-           <div className="img-container">
+           <div className="imgDrink-container">
                 <img src={props.drinkImg} alt="drink-image"/>
                 <h1 className='drink-name'>{props.drinkName}</h1>
             </div>
