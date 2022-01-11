@@ -87,6 +87,7 @@ export const BrowseCocktails = () => {
         <p>loading...</p>
       ) : (
         <div >
+          <hr></hr>
            <header className="header"><h1>Latest Cocktails</h1></header>
            <div className='latest main'>
           {item1.map((item1, index) => {
