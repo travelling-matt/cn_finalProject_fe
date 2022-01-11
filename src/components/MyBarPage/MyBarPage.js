@@ -13,6 +13,8 @@ import { addIngredientsFetch, userIngredientsFetch } from '../../utils';
 export const MyBarPage = (props) =>{
 
     const [ingredients, setIngredients] = useState([]);
+    //const [removeIng, setRemoveIng] = useState();
+    //const [indexToRemove, setIndexToRemove] = useState();
 
     // await addIngredientsFetch(user, ingredients);
 
@@ -28,16 +30,18 @@ export const MyBarPage = (props) =>{
                 break;
             case 'remove':
                 const index = ingredients.indexOf(state);
-                //let listRemove;
+                list = [...ingredients];
                 if(index > -1)
-                    list = ingredients.splice(index, 1);
+                    list.splice(index, 1);
+
+                    // list = ingredients.splice(index, 1);
                 //setIngredients(listRemove);
                 break;
             default:
                 break;
         }
         setIngredients(list);
-        await addIngredientsFetch(props.user, ingredients);
+        await addIngredientsFetch(props.user, list);
     }
 
     const getUserIngredients = async () => {
@@ -52,11 +56,11 @@ export const MyBarPage = (props) =>{
     return(
         <div className="ingredient-search-content">
             <div className="ingredient-search-bar">
-                <IngredientSearch ingredientList={ingredients} setIngredients={changeIngredients}/>
+                <IngredientSearch ingredientList={ingredients} changeIngredients={changeIngredients}/>
             </div>
             <div className="my-ingredients">
                 {ingredients.map((item, index) => {
-                    return <IngredientTile key={index} ingredientImg={`http://www.thecocktaildb.com/images/ingredients/${item}-Medium.png`} ingredientName={item}/>
+                    return <IngredientTile key={index} ingredientImg={`http://www.thecocktaildb.com/images/ingredients/${item}-Medium.png`} ingredientName={item} changeIngredients={changeIngredients}/>
                 })}
             </div>
         </div>

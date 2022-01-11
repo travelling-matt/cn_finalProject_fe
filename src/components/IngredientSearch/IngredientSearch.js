@@ -74,7 +74,7 @@ export class IngredientSearch extends Component {
             <input className="ingredient-input" onChange={(e) => this.filterIngredientsList(e.target.value)}></input>
                 <div className="ingredient-search-container">
                     {this.state.filteredIngredientsList.map((item, index) => {
-                        return <IngredientListItem key={index} ingredientName={item.name} setIngredients={this.props.setIngredients}/>
+                        return <IngredientListItem key={index} ingredientName={item.name} changeIngredients={this.props.changeIngredients}/>
                     })}
                 </div>
             </div>

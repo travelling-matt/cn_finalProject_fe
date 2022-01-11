@@ -6,7 +6,7 @@ import './IngredientListItem.css'
 export const IngredientListItem = (props) =>{
 
     const addIngredient = () => {
-        props.setIngredients(
+        props.changeIngredients(
             props.ingredientName,
             "add");
         }

@@ -1,7 +1,7 @@
 /*Displays the drink's img and name*/
 .card-container {
     margin-top: 30px;
-    margin: 20px;
+    margin: 50px;
     width: 250px;
     overflow: hidden;
   }
@@ -40,6 +40,13 @@
     font-size: 20px;
     margin: 0;
     padding: 0;
+  }
+
+  .remove-button {
+    z-index: 1;
+    height: 40px;
+    position: relative;
+    bottom: 64px;
   }
   
   @media screen and (max-width: 900px) {
