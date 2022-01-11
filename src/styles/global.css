@@ -3,7 +3,6 @@ body {
   background-image: url(./images/mainImage.jpg);
   min-height: 100%;
   max-width: 100%;
-  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

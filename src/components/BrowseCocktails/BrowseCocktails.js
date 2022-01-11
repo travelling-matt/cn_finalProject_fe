@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from "react";
 
-import './PopularCocktails.css';
+import './BrowseCocktails.css';
 
-const PopularCocktails = () => {
+export const BrowseCocktails = () => {
   const [item, setitem] = useState([]);
   const [loading, setLoading] = useState(false);
   
@@ -63,4 +63,3 @@ setitem(data.drinks)
     </div>
   );
 }
-export default PopularCocktails;

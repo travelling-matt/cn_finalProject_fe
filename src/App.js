@@ -7,6 +7,7 @@ import { Register } from "./components/Register/Register";
 import { AboutPage } from "./components/AboutPage/AboutPage.js";
 import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage.js";
 import { MyBarPage } from "./components/MyBarPage/MyBarPage.js";
+import { BrowseCocktails } from "./components/BrowseCocktails/BrowseCocktails.js";
 
 // import { tokenFetch } from "./utils";
 
@@ -26,6 +27,10 @@ const App = () =>{
 
   const searchClicked = () => {
     setCurrentPage("DrinkSearch");
+  }
+
+  const browseClicked = () => {
+    setCurrentPage("BrowseCocktails");
   }
 
   const signInClicked = () => {
@@ -49,6 +54,8 @@ const App = () =>{
         return <SignIn setUser={setUser}/>;
       case "Register":
         return <Register setUser={setUser}/>;
+      case "BrowseCocktails":
+        return <BrowseCocktails/>;
     }
   }
 
@@ -57,6 +64,7 @@ const App = () =>{
       <Header aboutClicked={aboutClicked}
               myBarClicked={myBarClicked}
               searchClicked={searchClicked}
+              browseClicked={browseClicked}
               signInClicked={signInClicked}
               registerClicked={registerClicked}/>
       <div>
