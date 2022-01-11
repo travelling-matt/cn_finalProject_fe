@@ -5,9 +5,11 @@ import './IngredientTile.css'
 
 export const IngredientTile = (props) =>{
     return(
-        <div>
-            <img src={props.ingredientImg}/>
-            <h3>{props.ingredientName}</h3>
-        </div>
+        <section className="card-container">
+            <div className="img-container">
+                <img src={props.ingredientImg} alt="ingredient-image"/>
+                <h1 className="ingredient-name">{props.ingredientName}</h1>
+            </div>
+        </section>
     )
 }
