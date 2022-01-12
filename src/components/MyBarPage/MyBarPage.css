@@ -11,7 +11,7 @@
   height: 90vh;
 }
 .my-ingredients {
-  margin-left: 40px;
+  margin-left: 110px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
