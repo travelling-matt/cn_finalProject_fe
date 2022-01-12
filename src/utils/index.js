@@ -6,13 +6,15 @@ export const tokenFetch = async (setUser) => {
         });
         const data = await response.json();
         setUser(data.user);
+        console.log(data.message);
     } catch (error) {
         console.log(error);
     }
 }
 
-export const signUpFetch = async (email, password, setUser) => {
+export const signUpFetch = async (userEmail, password, setUser) => {
     try {
+        const email = userEmail.toLowerCase();
         const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -23,16 +25,16 @@ export const signUpFetch = async (email, password, setUser) => {
         });
         const data = await response.json();
         setUser(data.user);
-        console.log(data.user)
-        console.log(data)
+        console.log(data.message);
         localStorage.setItem("myToken", data.token);
     } catch (error) {
         console.log(error);
     }
 };
 
-export const loginFetch = async (email, password, setUser) => {
+export const loginFetch = async (userEmail, password, setUser) => {
     try {
+        const email = userEmail.toLowerCase();
         const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -43,8 +45,7 @@ export const loginFetch = async (email, password, setUser) => {
         });
         const data = await response.json();
         setUser(data.user);
-        console.log(data.user)
-        console.log(data)
+        console.log(data.message);
         localStorage.setItem("myToken", data.token);
     } catch (error) {
         console.log(error);
