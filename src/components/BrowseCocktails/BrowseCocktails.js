@@ -66,8 +66,8 @@ export const BrowseCocktails = () => {
       if(data.drinks) {
         let drinkList = data.drinks;
         drinkList.sort(function(a, b) {
-          var nameA = a.strDrink.toUpperCase(); // ignore upper and lowercase
-          var nameB = b.strDrink.toUpperCase(); // ignore upper and lowercase
+          let nameA = a.strDrink.toUpperCase(); // ignore upper and lowercase
+          let nameB = b.strDrink.toUpperCase(); // ignore upper and lowercase
           if (nameA < nameB) {
             return -1;
           }
