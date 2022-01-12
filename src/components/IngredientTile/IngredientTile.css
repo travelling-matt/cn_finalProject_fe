@@ -1,9 +1,28 @@
-.img-container {
-  height: 50%;
+.ingredient-img {
+  background-color: #6d8299;
+  border-radius: 10%;
+  height: 80%;
+  width: 50%;
+  cursor: pointer;
 }
 
-.ingredient-img {
-  border-radius: 10%;
-  height: 50%;
-  cursor: pointer;
+.img-container {
+  margin-top: 15px;
+}
+
+.ingredientImg-name {
+  background-color: #6d8299;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 50%;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.ingredient-container {
+  margin-top: 20px;
+  gap: 10px;
+}
+.ingredient-container:hover {
+  transform: scale(1.1);
 }
