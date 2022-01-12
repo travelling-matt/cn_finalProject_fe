@@ -10,3 +10,10 @@
 .ingredient-search-bar {
     width: 30%;
 }
+
+.error {
+    margin-top: 30px;
+    text-align: center;
+    color: #c0c0c0;
+    font-weight: lighter;
+}

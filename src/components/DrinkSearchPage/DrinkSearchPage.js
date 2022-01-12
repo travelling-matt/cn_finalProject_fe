@@ -78,18 +78,25 @@ export const DrinkSearchPage = (props) =>{
 
     return(
         <>
-        {userIngredients.length == 0 &&
-            <div className='no-ingredients'>
-                <h2>Add ingredients using MyBar to use this page.</h2>
+        {props.user ?
+        <>
+            {userIngredients.length == 0 &&
+                <div className='error'>
+                    <h2>Add ingredients using MyBar to use this page.</h2>
+                </div>
+            }
+
+            <div className='drink-layout'>
+                {possibleDrinks.map((item, index) => {
+                    if(index < 20)
+                    return <DrinkTile key={index} drinkImg={item.thumbnailURL} drinkName={item.name}/>
+                })}       
+            </div>
+        </>
+        :   <div className='error'>
+                <h2>Please LogIn or Register to use this page.</h2>
             </div>
         }
-
-        <div className='drink-layout'>
-            {possibleDrinks.map((item, index) => {
-                if(index < 20)
-                return <DrinkTile key={index} drinkImg={item.thumbnailURL} drinkName={item.name}/>
-            })}       
-        </div>
         </>
     )
 }

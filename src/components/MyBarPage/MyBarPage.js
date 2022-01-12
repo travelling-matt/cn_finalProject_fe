@@ -45,15 +45,22 @@ export const MyBarPage = (props) =>{
     }, []);
 
     return(
-        <div className="ingredient-search-content">
-            <div className="ingredient-search-bar">
-                <IngredientSearch ingredientList={ingredients} changeIngredients={changeIngredients}/>
+        <>
+        {props.user ?
+            <div className="ingredient-search-content">
+                <div className="ingredient-search-bar">
+                    <IngredientSearch ingredientList={ingredients} changeIngredients={changeIngredients}/>
+                </div>
+                <div className="my-ingredients">
+                    {ingredients.map((item, index) => {
+                        return <IngredientTile key={index} ingredientImg={`https://www.thecocktaildb.com/images/ingredients/${item}-Medium.png`} ingredientName={item} changeIngredients={changeIngredients}/>
+                    })}
+                </div>
             </div>
-            <div className="my-ingredients">
-                {ingredients.map((item, index) => {
-                    return <IngredientTile key={index} ingredientImg={`https://www.thecocktaildb.com/images/ingredients/${item}-Medium.png`} ingredientName={item} changeIngredients={changeIngredients}/>
-                })}
-            </div>
-        </div>
+            :   <div className='error'>
+                    <h2>Please LogIn or Register to use this page.</h2>
+                </div>
+            }
+        </>
     )
 }
