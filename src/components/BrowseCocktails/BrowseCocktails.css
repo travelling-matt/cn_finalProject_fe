@@ -18,8 +18,15 @@ h1 {
     text-align:  center;
     justify-items: center;
 }
-
-.letter {
-    padding-left:30px;
-    margin-bottom:20px;
+.letter-list{display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+    
+    
+}
+.letter-link{padding: 13px;
+}
+.letter {margin-left: auto;
+    margin-right: auto;    
 }
