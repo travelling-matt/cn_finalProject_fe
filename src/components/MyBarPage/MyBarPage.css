@@ -6,16 +6,18 @@
 .ingredient-search-bar {
   overflow: hidden;
   display: grid;
+  padding-top: 1%;
   margin-left: 30px;
   width: 25%;
-  height: 90vh;
+  height: 80%;
 }
 .my-ingredients {
-  margin-left: 110px;
+  margin-left: 80px;
+
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 75%;
-  height: 90vh;
+  height: 85vh;
 }
