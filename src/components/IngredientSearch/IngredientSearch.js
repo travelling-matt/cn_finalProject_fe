@@ -35,8 +35,6 @@ export class IngredientSearch extends Component {
         // filter the array of ingredients to only contain
         // anything that matches the search parameters
 
-        console.log(`Filtering with parameter ${filterText}`);
-
         let result = this.state.completeIngredientsList.filter(function(item) {
             return typeof item.name == 'string' && item.name.toLowerCase().indexOf(filterText.toLowerCase()) > -1;
         });

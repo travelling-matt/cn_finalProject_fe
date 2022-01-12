@@ -9,13 +9,19 @@ import { signUpFetch } from "../../utils";
 export const Register = ({ setUser, setCurrentPage }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
+    const [errorMessage, setErrorMessage] = useState(" ");
 
     const registerHandler = async (e) => {
         e.preventDefault();
-        try {
-            signUpFetch(email, password, setUser, setCurrentPage);
-        } catch (error) {
-            console.log(error);
+        if(password == confirmPassword) {
+            try {
+                signUpFetch(email, password, setUser, setCurrentPage, setErrorMessage);
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            setErrorMessage("Passwords do not match!");
         }
     };
 
@@ -34,6 +40,12 @@ export const Register = ({ setUser, setCurrentPage }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
+                <input className='signUp-input'
+                    type="password"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Confirm Password"
+                />
+                <h3 className="error">{errorMessage}</h3>
                 <button className='submit-btn' type="submit">Submit</button>
             </form>
         </div>

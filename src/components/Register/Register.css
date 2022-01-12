@@ -60,6 +60,10 @@
   background-color: #c6cdd4;
 }
 
+.error {
+  
+}
+
 @media screen and (max-width: 1200px) {
   .form {
     padding-bottom: 60px;

@@ -8,13 +8,13 @@ import { loginFetch } from '../../utils';
 
 export const SignIn = ({ setUser, setCurrentPage }) => {
     const [email, setEmail] = useState();
-    const [password, setPassword] = useState();    
+    const [password, setPassword] = useState();
+    const [errorMessage, setErrorMessage] = useState(" ");
     
-
     const loginHandler = async (e) => {
         e.preventDefault();
         try {
-            loginFetch(email, password, setUser, setCurrentPage);
+            loginFetch(email, password, setUser, setCurrentPage, setErrorMessage);
         } catch (error) {
             console.log(error);
         }
@@ -33,6 +33,7 @@ export const SignIn = ({ setUser, setCurrentPage }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
+                <h3 className="error">{errorMessage}</h3>
                 <button className='login-btn' type="submit">Login</button>
             </form>
         </div>

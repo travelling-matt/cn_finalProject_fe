@@ -1,18 +1,22 @@
 export const tokenFetch = async (setUser) => {
-    try {
-        const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
-            method: "GET",
-            headers: { Authorization: `Bearer ${localStorage.getItem("myToken")}` },
-        });
-        const data = await response.json();
-        setUser(data.user);
-        console.log(data.message);
-    } catch (error) {
-        console.log(error);
+    if(localStorage.getItem("myToken")) {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
+                method: "GET",
+                headers: { Authorization: `Bearer ${localStorage.getItem("myToken")}` },
+            });
+            const data = await response.json();
+            if(response.status === 200) {
+                setUser(data.user);
+            }
+            console.log(data.message);
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
-export const signUpFetch = async (userEmail, password, setUser, setCurrentPage) => {
+export const signUpFetch = async (userEmail, password, setUser, setCurrentPage, setErrorMessage) => {
     try {
         const email = userEmail.toLowerCase();
         const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
@@ -24,17 +28,19 @@ export const signUpFetch = async (userEmail, password, setUser, setCurrentPage) 
             }),
         });
         const data = await response.json();
-        setUser(data.user);
-        console.log(data.message);
-        localStorage.setItem("myToken", data.token);
-        if(response.status === 200)
+        console.log(data);
+        if(response.status === 200) {
+            localStorage.setItem("myToken", data.token);
+            setUser(data.user);
             setCurrentPage("MyBar");
+        } else if(response.status === 500)
+            setErrorMessage(data.userMessage);
     } catch (error) {
         console.log(error);
     }
 };
 
-export const loginFetch = async (userEmail, password, setUser, setCurrentPage) => {
+export const loginFetch = async (userEmail, password, setUser, setCurrentPage, setErrorMessage) => {
     try {
         const email = userEmail.toLowerCase();
         const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
@@ -46,11 +52,13 @@ export const loginFetch = async (userEmail, password, setUser, setCurrentPage) =
             }),
         });
         const data = await response.json();
-        setUser(data.user);
         console.log(data.message);
-        localStorage.setItem("myToken", data.token);
-        if(response.status === 200)
+        if(response.status === 200) {
+            setUser(data.user);
+            localStorage.setItem("myToken", data.token);
             setCurrentPage("DrinkSearch");
+        } else if(response.status === 500)
+            setErrorMessage(data.userMessage);
     } catch (error) {
         console.log(error);
     }
