@@ -3,6 +3,7 @@
   margin-top: 30px;
   margin: 20px;
   width: 250px;
+  height: 100%;
   overflow: hidden;
 }
 .card-container:hover {
@@ -10,7 +11,7 @@
 }
 
 /* img styling*/
-.img-container {
+.imgDrink-container {
   align-items: center;
   overflow: hidden;
   height: 200px;

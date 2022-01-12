@@ -1,60 +1,44 @@
-/*Displays the drink's img and name*/
-.card-container {
-    margin-top: 30px;
-    margin: 50px;
-    width: 250px;
-    overflow: hidden;
-  }
-  .card-container:hover {
-    transform: scale(1.1);
-  }
-  
-  /* img styling*/
-  .img-container {
-    align-items: center;
-    overflow: hidden;
-    height: 200px;
-    background-color: #6d8299;
-    border-radius: 10%;
-    padding: 15px 4px 30px 15px;
-    margin: 0;
-    width: 85%;
-  }
-  
-  img {
-    border-radius: 10%;
-    height: 200px;
-    cursor: pointer;
-  }
-  
-  .ingredient-name {
-    text-align: center;
-  
-    background-color: #6d8299;
-    color: #fff;
-  }
-  
-  /* Reseting default value*/
-  h1,
-  p {
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
-  }
+.ingredient-img {
+  display: block;
+  background-color: #6d8299;
+  border-radius: 10%;
+  height: 90%;
+  width: 100%;
+  cursor: pointer;
+  margin: 0px;
+}
 
-  .remove-button {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    background: red;
-    position: relative;
-    bottom: 14rem;
-    left: 10rem;
-  }
-  
-  @media screen and (max-width: 900px) {
-    .card-container {
-      grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
-    }
-  }
-  
+.img-container {
+  margin-top: 15px;
+  height: 12rem;
+  width: 100%;
+}
+
+.ingredientImg-name {
+  margin-top: 10px;
+  background-color: #6d8299;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.ingredient-container {
+  width: 180px;
+  height: 208px;
+  padding: 16px;
+}
+
+.ingredient-container:hover {
+  transform: scale(1.1);
+}
+
+.remove-button {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: red;
+  position: relative;
+  bottom: 14rem;
+  left: 10rem;
+}

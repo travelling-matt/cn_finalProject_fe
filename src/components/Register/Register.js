@@ -26,8 +26,6 @@ export const Register = ({ setUser, setCurrentPage }) => {
     };
 
     return(
-
-       
         <div className='content'> 
             <form className='form' onSubmit={registerHandler}>
                  <h1 className='singUp-title'>Sign Up</h1>

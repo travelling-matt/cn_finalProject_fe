@@ -69,7 +69,8 @@ export class IngredientSearch extends Component {
     render() {
         return(
             <div className="search-container">
-            <input className="ingredient-input" onChange={(e) => this.filterIngredientsList(e.target.value)}></input>
+            
+                <input className="ingredient-input" placeholder='Search' onChange={(e) => this.filterIngredientsList(e.target.value)}/>
                 <div className="ingredient-search-container">
                     {this.state.filteredIngredientsList.map((item, index) => {
                         return <IngredientListItem key={index} ingredientName={item.name} changeIngredients={this.props.changeIngredients}/>
