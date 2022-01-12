@@ -15,7 +15,7 @@ export const IngredientTile = (props) =>{
     return(
         <section className="card-container">
             <div className="img-container">
-                <img src={props.ingredientImg} alt="ingredient-image"/>
+                <img  src={props.ingredientImg} alt="ingredient-image"/>
                 <h1 className="ingredient-name">{props.ingredientName}</h1>
                 <button className="remove-button" onClick={removeIngredient}><h1 className="minus">X</h1></button>
             </div>

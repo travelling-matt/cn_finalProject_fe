@@ -1,16 +1,21 @@
 .search-container {
-    background-color: white;
-    width: 100%;
-    border: black 2px solid;
+  width: 100%;
+  margin-top: 40%;
+  margin-left: 25%;
 }
 
-.ingredient-search-container {
-    max-height: 80vh;
-    min-height: 80vh;
-    overflow-y: scroll;
+.ingredient-search-content {
+  overflow-x: hidden;
+  margin-top: 30px;
+
+  max-height: 70vh;
+  min-height: 70vh;
+  overflow-y: scroll;
 }
 
 .ingredient-input {
-    width: 98%;
-    height: 32px;
+  position: relative;
+  background-color: #dbd8d8;
+  width: 98%;
+  height: 32px;
 }

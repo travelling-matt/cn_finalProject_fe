@@ -33,7 +33,7 @@ export const SignIn = ({ setUser }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
-                <button className='login-btn' type="submit">Login</button>
+                <button className='login-btn' type="submit">Sign In</button>
             </form>
         </div>
     )

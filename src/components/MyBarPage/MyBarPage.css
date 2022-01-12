@@ -1,12 +1,12 @@
 .ingredient-search-content {
-    display: flex;
-    width: 100vw;
+  display: flex;
+  width: 100vw;
 }
 
-.my-ingredients{
-    width: 70%;
-}
-
-.ingredient-search-bar {
-    width: 30%;
+.my-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  width: 100%;
+  margin-top: 30px;
 }

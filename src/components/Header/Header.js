@@ -14,10 +14,10 @@ export const Header = (props) =>{
                 <HeaderButton buttonName="Browse" clickFunction={props.browseClicked}/>
                 <div>
                     <div className='button' onClick={props.signInClicked}>
-                        <span className='loginButton'>Log in</span>
+                        <span className='loginButton'>Sign In</span>
                     </div>
                     <div className='button' onClick={props.registerClicked}>
-                        <span className='loginButton'>Register</span>
+                        <span className='loginButton'>Sign Up</span>
                     </div>
                 </div>
             </div>
