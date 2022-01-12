@@ -1,73 +1,170 @@
-
 import { useEffect, useState } from "react";
-
+import { DrinkTile, } from "../DrinkTile/DrinkTile";
 import './BrowseCocktails.css';
 
 export const BrowseCocktails = () => {
-  const [item, setitem] = useState([]);
-  const [loading, setLoading] = useState(false);
-  
-  
+  const [popularCocktails, setPopularCocktails] = useState([]);
+  const [latestCocktails, setLatestCocktails] = useState([]);
+  const [cocktailsByLetter, setCocktailsByLetter] = useState([]);
+  const [popularLoading, setPopularLoading] = useState(false);
+  const [latestLoading, setLatestLoading] = useState(false);
+  const [byLetterLoading, setByLetterLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState();
+
   const [error, setError] = useState({
     error: false,
     message: "",
   });
-  const handler = async () => {
+  
+  const getPopularCocktails = async () => {
     try {
-      setLoading(true);
+      setPopularLoading(true);
       const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/popular.php");
       console.log(response);
       console.log("fetching")
       if (response.status !== 200) {
         throw new Error("not fetching");
       }
-      const data = await response.json();   
-setitem(data.drinks)
+      const data = await response.json();
+      setPopularCocktails(data.drinks)
       console.log("API info", data.drinks);
-      setLoading(false);
+      setPopularLoading(false);
     } catch (e) {
       setError({ error: true, message: e.message });
     }
   };
 
-  const fetchAllOfLetter = async (letter) => {
+  const getLatestCocktails = async () => {
     try {
-      
-    } catch (error) {
-      console.log(error);
+      setLatestLoading(true);
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/latest.php");
+      console.log(response);
+      console.log("fetching")
+      if (response.status !== 200) {
+        throw new Error("not fetching");
+      }
+      const data = await response.json();
+      setLatestCocktails(data.drinks)
+      console.log("API info", data.drinks);
+      setLatestLoading(false);
+    } catch (e) {
+      setError({ error: true, message: e.message });
     }
-  }
+  };
 
+  const getCocktailsByLetter = async (letter) => {
+    //try {
+      setCocktailsByLetter([]);
+      setByLetterLoading(true);
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=${letter}`);
+      console.log(response);
+      console.log("fetching")
+      if (response.status !== 200) {
+        throw new Error("not fetching");
+      }
+      const data = await response.json();
+      if(data.drinks) {
+        setCocktailsByLetter(data.drinks)
+        console.log("API info", data.drinks);
+      } else {
+        setErrorMessage(`No cocktails beginning with ${letter.toUpperCase()}`);
+      }
+      setByLetterLoading(false);
+    //} catch (e) {
+      //setError({ error: true, message: e.message });
+    //}
+  };
+  
   useEffect(() => {
-    handler();
+    getPopularCocktails();
+    getLatestCocktails();    
   }, []);
 
   if (error.error) {
     return <h1>{error.message}</h1>;
   }
   return (
-    <div>
-      <header className="title"><button onClick={handler}>List Popular Cocktails</button></header>
-      {loading ? (
+    <div>   
+      {popularLoading ? (
         <p>loading...</p>
       ) : (
-        <div className='main'>
-           {item.map((item, index) => {
-        return <div> <h1>{item.strDrink}</h1><img className='images'key={index} src={item.strDrinkThumb}alt="cocktails"/>
-        <p>Ingredients:</p>
-        <ul>
-           <li>{item.strMeasure1} {item.strIngredient1} </li>
-           <li>{item.strMeasure2} {item.strIngredient2}</li>
-           <li>{item.strMeasure3} {item.strIngredient3}</li>
-           <li> {item.strMeasure4} {item.strIngredient4} </li>
-           <li>{item.strMeasure5} {item.strIngredient5} </li>
-           <li>{item.strMeasure6} {item.strIngredient6} </li>
-           <li> {item.strMeasure7} {item.strIngredient7}</li>
-           </ul>         
-        <p>Instructions: {item.strInstructions}</p></div>
-        })}
+        <div >
+           <header className="header"><h1>Popular Cocktails</h1></header>
+           <div className=' popular'>
+          {popularCocktails.map((item, index) => {
+            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+          })}</div>
         </div>
       )}
+  
+      {latestLoading ? (
+        <p>loading...</p>
+      ) : (
+        <div >
+          <hr></hr>
+           <header className="header"><h1>Latest Cocktails</h1></header>
+           <div className='latest '>
+          {latestCocktails.map((item, index) => {
+            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+          })}</div>
+        </div>
+        )}
+
+{byLetterLoading ? (
+        <p>loading...</p>
+      ) : (
+
+      <div >
+        <hr></hr>
+          <header className="header "><h1> Cocktails A-Z</h1></header>
+          <div className="letter-list">
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("a")}>A</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("b")}>B</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("c")}>C</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("d")}>D</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("e")}>E</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("f")}>F</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("g")}>G</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("h")}>H</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("i")}>I</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("j")}>J</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("k")}>K</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("l")}>L</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("m")}>M</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("n")}>N</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("o")}>O</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("p")}>P</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("q")}>Q</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("r")}>R</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("s")}>S</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("t")}>T</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("u")}>U</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("v")}>V</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("w")}>W</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("x")}>X</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("y")}>Y</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("z")}>Z</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("0")}>0</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("1")}>1</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("2")}>2</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("3")}>3</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("4")}>4</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("5")}>5</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("6")}>6</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("7")}>7</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("8")}>8</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("9")}>9</h1>
+            </div>
+            {cocktailsByLetter.length != 0 ?
+              <div className="letter">
+                {cocktailsByLetter.map((item, index) => {
+                return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+                })}
+              </div>
+            :
+              <h1>{errorMessage}</h1>
+            }
+      </div> )}     
     </div>
   );
 }

@@ -17,12 +17,12 @@ export const AboutPage = () =>{
             <h1>How to use the cocktail generator</h1>
             
             <div className="instructions">
-            <ol >
+            <ul >
             <li>In the search box, type in the ingredients you have. Your ingredients will be saved in 'My Bar'.</li>
             <li>You do not have to select an alcohol.</li>
             <li>Select the 'Make my cocktail' button to search your available cocktails. </li>
             <li>You can save your favourite cocktails to 'My favourites' by selecting 'Save to My Favourites'.</li>
-            </ol>
+            </ul>
             </div>
             <p>Have fun!</p>
         </div>
