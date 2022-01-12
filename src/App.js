@@ -41,6 +41,12 @@ const App = () =>{
     setCurrentPage("Register");
   }
 
+  const logOutClicked = () => {
+    setUser(undefined);
+    setCurrentPage("About");
+    localStorage.removeItem("myToken");
+  }
+
   const getCurrentPage = () => {
     switch(currentPage) {
       case "About":
@@ -69,7 +75,9 @@ const App = () =>{
               searchClicked={searchClicked}
               browseClicked={browseClicked}
               signInClicked={signInClicked}
-              registerClicked={registerClicked}/>
+              registerClicked={registerClicked}
+              logOutClicked={logOutClicked}
+              user={user}/>
       <div>
         {getCurrentPage()}
       </div>

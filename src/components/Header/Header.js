@@ -13,12 +13,20 @@ export const Header = (props) =>{
                 <HeaderButton buttonName="Search" clickFunction={props.searchClicked}/>
                 <HeaderButton buttonName="Browse" clickFunction={props.browseClicked}/>
                 <div>
-                    <div className='button' onClick={props.signInClicked}>
+                    {props.user ? 
+                    <div className='button' onClick={props.logOutClicked}>
+                        <h3>{props.user}</h3>
+                        <span className='loginButton'>Log Out</span>
+                    </div> :
+                    <div>
+                        <div className='button' onClick={props.signInClicked}>
                         <span className='loginButton'>Log in</span>
-                    </div>
-                    <div className='button' onClick={props.registerClicked}>
+                        </div>
+                        <div className='button' onClick={props.registerClicked}>
                         <span className='loginButton'>Register</span>
+                        </div>
                     </div>
+                    }
                 </div>
             </div>
         </header>
