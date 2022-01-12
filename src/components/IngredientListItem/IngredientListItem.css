@@ -24,3 +24,9 @@
   font-size: 1.5rem;
   color: #dbd8d8;
 }
+
+@media screen and (min-width: 700px) {
+  .ingredient-name {
+    font-size: 20px;
+  }
+}
