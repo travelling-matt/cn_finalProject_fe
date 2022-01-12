@@ -64,8 +64,22 @@ export const BrowseCocktails = () => {
       }
       const data = await response.json();
       if(data.drinks) {
-        setCocktailsByLetter(data.drinks)
-        console.log("API info", data.drinks);
+        let drinkList = data.drinks;
+        drinkList.sort(function(a, b) {
+          var nameA = a.strDrink.toUpperCase(); // ignore upper and lowercase
+          var nameB = b.strDrink.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        
+          // names must be equal
+          return 0;
+        });
+        setCocktailsByLetter(drinkList)
+        console.log("API info", drinkList);
       } else {
         setErrorMessage(`No cocktails beginning with ${letter.toUpperCase()}`);
       }
@@ -109,13 +123,21 @@ export const BrowseCocktails = () => {
           })}</div>
         </div>
         )}
-
+  <hr></hr>
 {byLetterLoading ? (
         <p>loading...</p>
       ) : (
-
+        
       <div >
-        <hr></hr>
+        {cocktailsByLetter.length != 0 ?
+          <div className="letter">
+            {cocktailsByLetter.map((item, index) => {
+              return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+            })}
+          </div>
+        :
+          <h1>{errorMessage}</h1>
+        }
           <header className="header "><h1> Cocktails A-Z</h1></header>
           <div className="letter-list">
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("a")}>A</h1>
@@ -155,15 +177,6 @@ export const BrowseCocktails = () => {
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("8")}>8</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("9")}>9</h1>
             </div>
-            {cocktailsByLetter.length != 0 ?
-              <div className="letter">
-                {cocktailsByLetter.map((item, index) => {
-                return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
-                })}
-              </div>
-            :
-              <h1>{errorMessage}</h1>
-            }
       </div> )}     
     </div>
   );
