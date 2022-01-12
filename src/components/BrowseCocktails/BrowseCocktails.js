@@ -9,6 +9,7 @@ export const BrowseCocktails = () => {
   const [popularLoading, setPopularLoading] = useState(false);
   const [latestLoading, setLatestLoading] = useState(false);
   const [byLetterLoading, setByLetterLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState();
 
   const [error, setError] = useState({
     error: false,
@@ -52,7 +53,7 @@ export const BrowseCocktails = () => {
   };
 
   const getCocktailsByLetter = async (letter) => {
-    try {
+    //try {
       setCocktailsByLetter([]);
       setByLetterLoading(true);
       const response = await fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=${letter}`);
@@ -62,12 +63,16 @@ export const BrowseCocktails = () => {
         throw new Error("not fetching");
       }
       const data = await response.json();
-      setCocktailsByLetter(data.drinks)
-      console.log("API info", data.drinks);
+      if(data.drinks) {
+        setCocktailsByLetter(data.drinks)
+        console.log("API info", data.drinks);
+      } else {
+        setErrorMessage(`No cocktails beginning with ${letter.toUpperCase()}`);
+      }
       setByLetterLoading(false);
-    } catch (e) {
-      setError({ error: true, message: e.message });
-    }
+    //} catch (e) {
+      //setError({ error: true, message: e.message });
+    //}
   };
   
   useEffect(() => {
@@ -139,6 +144,7 @@ export const BrowseCocktails = () => {
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("x")}>X</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("y")}>Y</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("z")}>Z</h1>
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("0")}>0</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("1")}>1</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("2")}>2</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("3")}>3</h1>
@@ -146,13 +152,18 @@ export const BrowseCocktails = () => {
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("5")}>5</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("6")}>6</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("7")}>7</h1>
-            
+            <h1 className="letter-link" onClick={() => getCocktailsByLetter("8")}>8</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("9")}>9</h1>
             </div>
-          <div className="letter">
-            {cocktailsByLetter.map((item, index) => {
-            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
-          })}</div>
+            {cocktailsByLetter.length != 0 ?
+              <div className="letter">
+                {cocktailsByLetter.map((item, index) => {
+                return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+                })}
+              </div>
+            :
+              <h1>{errorMessage}</h1>
+            }
       </div> )}     
     </div>
   );
