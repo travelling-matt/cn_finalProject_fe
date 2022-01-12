@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { DrinkTile, } from "../DrinkTile/DrinkTile";
+import { DrinkTile } from "../DrinkTile/DrinkTile";
 import './BrowseCocktails.css';
+
 
 export const BrowseCocktails = () => {
   const [popularCocktails, setPopularCocktails] = useState([]);
@@ -103,13 +104,24 @@ export const BrowseCocktails = () => {
         <p>loading...</p>
       ) : (
         <div >
-           <header className="header"><h1>Popular Cocktails</h1></header>
-           <div className=' popular'>
+           <header className="header"><h1 className="title">Popular Cocktails</h1></header>
+           <div className='popular'>
           {popularCocktails.map((item, index) => {
-            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
-          })}</div>
+            return <DrinkTile key={index} drinkImg={item.strDrinkThumb}  drinkName={item.strDrink} />
+          
+          })}
+          <>
+           </>
+          
+          </div>
         </div>
       )}
+      
+
+
+
+
+
   
       {latestLoading ? (
         <p>loading...</p>
@@ -132,7 +144,7 @@ export const BrowseCocktails = () => {
         {cocktailsByLetter.length != 0 ?
           <div className="letter">
             {cocktailsByLetter.map((item, index) => {
-              return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+              return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drink-Name={item.strDrink} />
             })}
           </div>
         :

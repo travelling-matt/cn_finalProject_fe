@@ -57,7 +57,7 @@ export const MyBarPage = (props) =>{
                     })}
                 </div>
             </div>
-            :   <div className='error'>
+            :   <div className='login-error'>
                     <h2>Please Log In or Register to use this page.</h2>
                 </div>
             }

@@ -28,17 +28,14 @@ img {
   cursor: pointer;
 }
 
-.drink-name {
+.drink-name h1 {
   text-align: center;
-
   background-color: #6d8299;
-  color: #fff;
 }
 
 /* Reseting default value*/
 h1,
 p {
-  font-size: 20px;
   margin: 0;
   padding: 0;
 }
