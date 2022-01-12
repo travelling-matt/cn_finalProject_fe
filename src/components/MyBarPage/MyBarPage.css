@@ -1,5 +1,5 @@
 .ingredient-search-content {
-  display: -webkit-inline-flex;
+  display: flex;
   width: 100vw;
 }
 
@@ -8,16 +8,14 @@
   display: grid;
   margin-left: 30px;
   width: 25%;
-  height: 80vh;
+  height: 90vh;
 }
 .my-ingredients {
-  margin-left: 30px;
-  margin-top: 30px;
+  margin-left: 40px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
-  overflow-y: hidden;
-  overflow: hidden;
-
+  overflow-x: hidden;
   width: 75%;
+  height: 80vh;
 }
