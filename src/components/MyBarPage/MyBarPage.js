@@ -51,7 +51,7 @@ export const MyBarPage = (props) =>{
             </div>
             <div className="my-ingredients">
                 {ingredients.map((item, index) => {
-                    return <IngredientTile key={index} ingredientImg={`http://www.thecocktaildb.com/images/ingredients/${item}-Medium.png`} ingredientName={item} changeIngredients={changeIngredients}/>
+                    return <IngredientTile key={index} ingredientImg={`https://www.thecocktaildb.com/images/ingredients/${item}-Medium.png`} ingredientName={item} changeIngredients={changeIngredients}/>
                 })}
             </div>
         </div>
