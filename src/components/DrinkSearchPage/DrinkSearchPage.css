@@ -8,10 +8,11 @@
   justify-content: center;
 }
 
-.search-button {
+.no-ingredients {
   margin-top: 30px;
   text-align: center;
-  cursor: pointer;
+  color: #c0c0c0;
+  font-weight: lighter;
 }
 
 /*Makes the layout responsive*/

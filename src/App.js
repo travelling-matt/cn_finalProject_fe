@@ -56,9 +56,9 @@ const App = () =>{
       case "DrinkSearch":
         return <DrinkSearchPage user={user}/>;
       case "SignIn":
-        return <SignIn setUser={setUser}/>;
+        return <SignIn setUser={setUser} setCurrentPage={setCurrentPage}/>;
       case "Register":
-        return <Register setUser={setUser}/>;
+        return <Register setUser={setUser} setCurrentPage={setCurrentPage}/>;
       case "BrowseCocktails":
         return <BrowseCocktails/>;
     }

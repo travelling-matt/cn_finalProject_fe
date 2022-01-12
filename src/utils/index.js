@@ -12,7 +12,7 @@ export const tokenFetch = async (setUser) => {
     }
 }
 
-export const signUpFetch = async (userEmail, password, setUser) => {
+export const signUpFetch = async (userEmail, password, setUser, setCurrentPage) => {
     try {
         const email = userEmail.toLowerCase();
         const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
@@ -27,12 +27,14 @@ export const signUpFetch = async (userEmail, password, setUser) => {
         setUser(data.user);
         console.log(data.message);
         localStorage.setItem("myToken", data.token);
+        if(response.status === 200)
+            setCurrentPage("MyBar");
     } catch (error) {
         console.log(error);
     }
 };
 
-export const loginFetch = async (userEmail, password, setUser) => {
+export const loginFetch = async (userEmail, password, setUser, setCurrentPage) => {
     try {
         const email = userEmail.toLowerCase();
         const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
@@ -47,6 +49,8 @@ export const loginFetch = async (userEmail, password, setUser) => {
         setUser(data.user);
         console.log(data.message);
         localStorage.setItem("myToken", data.token);
+        if(response.status === 200)
+            setCurrentPage("DrinkSearch");
     } catch (error) {
         console.log(error);
     }

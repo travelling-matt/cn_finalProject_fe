@@ -6,7 +6,7 @@ import './SignIn.css'
 import { useState } from "react";
 import { loginFetch } from '../../utils';
 
-export const SignIn = ({ setUser }) => {
+export const SignIn = ({ setUser, setCurrentPage }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();    
     
@@ -14,7 +14,7 @@ export const SignIn = ({ setUser }) => {
     const loginHandler = async (e) => {
         e.preventDefault();
         try {
-            loginFetch(email, password, setUser);
+            loginFetch(email, password, setUser, setCurrentPage);
         } catch (error) {
             console.log(error);
         }

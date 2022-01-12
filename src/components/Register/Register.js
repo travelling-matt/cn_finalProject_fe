@@ -6,14 +6,14 @@ import './Register.css'
 import { useState } from "react";
 import { signUpFetch } from "../../utils";
 
-export const Register = ({ setUser }) => {
+export const Register = ({ setUser, setCurrentPage }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
     const registerHandler = async (e) => {
         e.preventDefault();
         try {
-            signUpFetch(email, password, setUser);
+            signUpFetch(email, password, setUser, setCurrentPage);
         } catch (error) {
             console.log(error);
         }

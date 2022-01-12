@@ -3,7 +3,7 @@ import './DrinkSearchPage.css';
 import { drinksFetch, invertedIngredientsFetch, userIngredientsFetch } from '../../utils/index.js';
 import { DrinkTile } from '../DrinkTile/DrinkTile.js';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // This would contain elements specific to the DrinkSearchPage
 // First element would be something to specify the search parameters
@@ -12,15 +12,18 @@ import { useState } from 'react';
 export const DrinkSearchPage = (props) =>{
 
     const [possibleDrinks, setPossibleDrinks] = useState([]);
+    const [userIngredients, setUserIngredients] = useState([]);
 
     const findUsingMyBar = async () => {
         console.log("Finding Cocktails");
-        const userIngredients = await userIngredientsFetch(props.user);
-        console.log(userIngredients);
+        const ingredients = await userIngredientsFetch(props.user);
+        setUserIngredients(ingredients)
+        if(ingredients.length == 0)
+            return;
         let allDrinkObjects = await drinksFetch();
         let availableDrinks = [];
         //const availableIngredients = ['Orange Juice', 'Vodka', 'Coca-Cola', 'Rum', 'Dark Rum', 'Spiced Rum', 'Coca-Cola', 'Gin', 'Tonic Water', 'Lime', 'Ice'];
-        const missingIngredients = await invertedIngredientsFetch(userIngredients);
+        const missingIngredients = await invertedIngredientsFetch(ingredients);
 
         // Iterate through every cocktail in the DB
         for(let i = 0; i < allDrinkObjects.length; i++) {
@@ -69,15 +72,19 @@ export const DrinkSearchPage = (props) =>{
         setPossibleDrinks(availableDrinks);
     }
 
+    useEffect(() => {
+        findUsingMyBar();
+      }, []);
+
     return(
         <>
-        <div className='search-button'>
-        <h3 onClick={findUsingMyBar}>Find Cocktails Using MyBar</h3>
-        </div>
-        
+        {userIngredients.length == 0 &&
+            <div className='no-ingredients'>
+                <h2>Add ingredients using MyBar to use this page.</h2>
+            </div>
+        }
+
         <div className='drink-layout'>
-           
-            
             {possibleDrinks.map((item, index) => {
                 if(index < 20)
                 return <DrinkTile key={index} drinkImg={item.thumbnailURL} drinkName={item.name}/>
