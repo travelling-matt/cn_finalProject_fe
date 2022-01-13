@@ -30,7 +30,9 @@ img {
 
 .drink-name {
   text-align: center;
-
+  width: 100%;
+  margin-top: 0px;
+  font-size: 1.5rem;
   background-color: #6d8299;
   color: #fff;
 }

@@ -1,10 +1,111 @@
-.drinkDetails {
-    width: 90%;
-    height: 90%;
+.desc-drink-details {
+    width: 76%;
+    height: 80%;
     z-index: 10;
-    display:inline-block;
     position: absolute;
-    padding: 5%;
-    color: burlywood;
-    border: black 2px solid;
+    margin-left: 12vw;
+    margin-right: 12vw;
+    background-color: #6d8299;
+    border-radius: 3%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.desc-top-section {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.desc-left-section {
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    border: 0px;
+}
+
+.desc-title-section {
+    height: 30%;
+    display: flex;
+}
+
+.desc-name-section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.desc-drink-name {
+    height: 65%;
+    width: 90%;
+    text-align: left;
+    border-left: 8px;
+    margin-top: 8px;
+}
+
+.desc-glass-type {
+    height: 35%;
+    width: 90%;
+    margin: 0px;
+}
+
+.desc-drink-image {
+    height: 80%;
+    width: 35%;
+    display: block;
+}
+
+.desc-instructions-section {
+    width: 100%;
+    height: 70%;
+}
+
+.desc-instructions-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.desc-drink-ingredients-item {
+    width: 45%;
+    padding-left: 4%;
+}
+
+.desc-section-title {
+    width: 100%;
+    text-decoration: underline;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+.desc-right-section {
+    width: 50%;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.desc-vertical-line {
+    border-left: 2px white solid;
+    height: 95%;
+}
+
+.desc-horizontal-line {
+    border-top: 2px white solid;
+    width: 95%;
+}
+
+.desc-close-button {
+    height: 8%;
+    width: 8rem;
 }

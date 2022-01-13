@@ -7,7 +7,6 @@ export const DrinkDetails = (props) => {
     const [drinkDetails, setDrinkDetails] = useState();
     const [drinkIngredients, setDrinkIngredients] = useState();
     const [componentInitialized, setComponentInitialized] = useState(false);
-    const [drinkImage, setDrinkImage] = useState();
 
     const initComponent = async () => {
         // Fetch the drink details from the API here
@@ -47,7 +46,6 @@ export const DrinkDetails = (props) => {
             ingredients[index] = item.replaceAll("null", "");
         })
 
-        setDrinkImage(drinkData.strImageSource);
         setDrinkIngredients([...ingredients]);
         setComponentInitialized(true);
     }
@@ -58,27 +56,36 @@ export const DrinkDetails = (props) => {
       }, []);
 
     return (
-        <div className="drink-details">
+        <div className="desc-drink-details">
             {drinkDetails && componentInitialized &&
-            <>
-            <div className="top-section">
-                <img className="drink-image" src={drinkImage}/>
-                <h1 className="drink-name">{drinkDetails.strDrink}</h1>
-                <h2 className="glass-type">{drinkDetails.strGlass}</h2>
-            </div>
-            <div className="bottom-section">
-                <div className="drink-instructions">
-                    <p className="instructions-paragraph">{drinkDetails.strInstructions}</p>
+
+                <div className="desc-top-section">
+                    <div className="desc-left-section">
+                        <div className="desc-title-section">
+                            <img className="desc-drink-image" src={drinkDetails.strDrinkThumb}/>
+                            <div className="desc-name-section">
+                                <h1 className="desc-drink-name">{drinkDetails.strDrink}</h1>
+                                <h3 className="desc-glass-type">Serve in a {drinkDetails.strGlass}</h3>
+                            </div>
+                        </div>
+                        <div className="desc-horizontal-line"/>
+                        <div className="desc-instructions-section">
+                            <h2 className="desc-section-title">Instructions</h2>
+                            <p className="desc-instructions-paragraph">{drinkDetails.strInstructions}</p>
+                        </div>
+                    </div>
+                    <div className="desc-vertical-line"/>
+                    <div className="desc-right-section">
+                        <h2 className="desc-section-title">Ingredients</h2>
+                        <div className="desc-instructions-container">
+                            {drinkIngredients.map((item, index) => {
+                                if(item != " ") return <h3 className="desc-drink-ingredients-item" key={index}>{item}</h3>
+                            })}
+                        </div>
+                    </div>
                 </div>
-                <div className="drink-ingredients">
-                    {drinkIngredients.map((item, index) => {
-                        if(item != " ") return <h3 className="drink-ingredients-item" key={index}>{item}</h3>
-                    })}
-                </div>
-            </div>
-            </>
             }
-            <button className="close-button" onClick={props.closeDetails}>CLOSE</button>
+            <button className="desc-close-button" onClick={props.closeDetails}>CLOSE</button>
         </div>
     );
 }
