@@ -7,6 +7,7 @@ export const DrinkDetails = (props) => {
     const [drinkDetails, setDrinkDetails] = useState();
     const [drinkIngredients, setDrinkIngredients] = useState();
     const [componentInitialized, setComponentInitialized] = useState(false);
+    const [drinkImage, setDrinkImage] = useState();
 
     const initComponent = async () => {
         // Fetch the drink details from the API here
@@ -42,10 +43,11 @@ export const DrinkDetails = (props) => {
             `${drinkData.strIngredient15} ${drinkData.strMeasure15}`
         ];
 
-        ingredients.forEach((item) => {
-            item.replace(/null/i, "");
+        ingredients.forEach((item, index) => {
+            ingredients[index] = item.replaceAll("null", "");
         })
 
+        setDrinkImage(drinkData.strImageSource);
         setDrinkIngredients([...ingredients]);
         setComponentInitialized(true);
     }
@@ -60,7 +62,7 @@ export const DrinkDetails = (props) => {
             {drinkDetails && componentInitialized &&
             <>
             <div className="top-section">
-                <img className="drink-image" src={drinkDetails.strImageSource}/>
+                <img className="drink-image" src={drinkImage}/>
                 <h1 className="drink-name">{drinkDetails.strDrink}</h1>
                 <h2 className="glass-type">{drinkDetails.strGlass}</h2>
             </div>

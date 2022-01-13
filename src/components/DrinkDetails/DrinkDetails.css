@@ -1,8 +1,10 @@
 .drinkDetails {
-    width: 90vw;
-    height: 90vh;
+    width: 90%;
+    height: 90%;
     z-index: 10;
+    display:inline-block;
     position: absolute;
     padding: 5%;
-    background-color: burlywood;
+    color: burlywood;
+    border: black 2px solid;
 }
