@@ -5,12 +5,7 @@
   font-weight: lighter;
 }
 
-h1 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: lighter;
-}
-
+.loading-text{ text-shadow: 2px 2px 2px #000000;}
 .letter-link {
   color: #fff;
   font-size: 25px;
@@ -25,21 +20,25 @@ h1 {
   justify-content: space-evenly;
 }
 
-.header {
+.browse-section-title {
+  color: #fff;
   text-align: center;
   justify-items: center;
 }
 
-.letter-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.letter-list{display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-evenly;
+    
+    
 }
-.letter-link {
-  padding: 10px;
+.letter-link{padding: 10px;
+    color:aliceblue;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px #000000;
+    text-align: center;
 }
-.letter {
-  margin-left: auto;
-  margin-right: auto;
+.letter {margin-left: auto;
+    margin-right: auto;    
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { DrinkTile } from "../DrinkTile/DrinkTile";
 import './BrowseCocktails.css';
 import React, { useRef } from 'react';
+import { DrinkDetails } from '../DrinkDetails/DrinkDetails.js';
 
 
 export const BrowseCocktails = () => {
@@ -12,6 +13,8 @@ export const BrowseCocktails = () => {
   const [latestLoading, setLatestLoading] = useState(false);
   const [byLetterLoading, setByLetterLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
+  const [currentDrink, setCurrentDrink] = useState();
+  const [displayDrink, setDisplayDrink] = useState(false);
   const titleRef = useRef();
   function scrollHandler() {
     titleRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -89,13 +92,18 @@ export const BrowseCocktails = () => {
         setErrorMessage(`No cocktails beginning with ${letter.toUpperCase()}`);
       }
       setByLetterLoading(false);
-    //} catch (e) {
-      //setError({ error: true, message: e.message });
-    //}
     scrollHandler();
   };
   
+  const displayDetails = () => {
+    setDisplayDrink(true);
+    //childCallback.current.needsToBeCalled();
+  }
 
+  const closeDetails = () => {
+    setDisplayDrink(false);
+    setCurrentDrink(null);
+  }
 
   useEffect(() => {
     getPopularCocktails();
@@ -106,15 +114,18 @@ export const BrowseCocktails = () => {
     return <h1>{error.message}</h1>;
   }
   return (
-    <div>   
+    <div>
+
+      {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
+
       {popularLoading ? (
-        <p>loading...</p>
+        <p className="loading-text">loading...</p>
       ) : (
         <div >
-           <header className="header"><h1 className="title">Popular Cocktails</h1></header>
+           <header className="browse-section-title"><h1 className="title">Popular Cocktails</h1></header>
            <div className='popular'>
           {popularCocktails.map((item, index) => {
-            return <DrinkTile key={index} drinkImg={item.strDrinkThumb}  drinkName={item.strDrink} />
+            return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
           
           })}
           <>
@@ -123,33 +134,27 @@ export const BrowseCocktails = () => {
           </div>
         </div>
       )}
-      
-
-
-
-
-
   
       {latestLoading ? (
-        <p>loading...</p>
+        <p className="loading-text">loading...</p>
       ) : (
         <div >
           <hr></hr>
-           <header className="header"><h1>Latest Cocktails</h1></header>
+           <header className="browse-section-title"><h1>Latest Cocktails</h1></header>
            <div className='latest '>
           {latestCocktails.map((item, index) => {
-            return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+            return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
           })}</div>
         </div>
         )}
 
-{byLetterLoading ? (
-        <p>loading...</p>
+      {byLetterLoading ? (
+        <p className="loading-text">loading...</p>
       ) : (
         
       <div >
         <hr></hr>
-          <header className="header "><h1 ref={titleRef}> Cocktails A-Z</h1></header>
+          <header className="browse-section-title"><h1 ref={titleRef}> Cocktails A-Z</h1></header>
           <div className="letter-list">          
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("a")}>A</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("b")}>B</h1>
@@ -191,7 +196,7 @@ export const BrowseCocktails = () => {
             {cocktailsByLetter.length !== 0 ?
               <div className="letter">
                 {cocktailsByLetter.map((item, index) => {
-                return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+                return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
                 })}
               </div>
             :

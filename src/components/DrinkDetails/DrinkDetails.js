@@ -77,7 +77,7 @@ export const DrinkDetails = (props) => {
                     <div className="desc-vertical-line"/>
                     <div className="desc-right-section">
                         <h2 className="desc-section-title">Ingredients</h2>
-                        <div className="desc-instructions-container">
+                        <div className="desc-ingredients-container">
                             {drinkIngredients.map((item, index) => {
                                 if(item != " ") return <h3 className="desc-drink-ingredients-item" key={index}>{item}</h3>
                             })}

@@ -2,7 +2,7 @@
     width: 76%;
     height: 80%;
     z-index: 10;
-    position: absolute;
+    position: fixed;
     margin-left: 12vw;
     margin-right: 12vw;
     background-color: #6d8299;
@@ -42,6 +42,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    font-weight: lighter;
 }
 
 .desc-drink-name {
@@ -69,9 +71,14 @@
     height: 70%;
 }
 
-.desc-instructions-container {
+.desc-instructions-paragraph {
+    color: #fff;
+}
+
+.desc-ingredients-container {
     display: flex;
     flex-wrap: wrap;
+    font-size: 12pt;
 }
 
 .desc-drink-ingredients-item {
