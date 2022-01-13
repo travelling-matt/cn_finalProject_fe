@@ -21,7 +21,8 @@ export const SignIn = ({ setUser, setCurrentPage }) => {
     };
     
     return(
-        <div className='content'>
+        <div className='signIn-content'>
+            <h3 className="logIn-error">{errorMessage}</h3>
             <form className='signIn-form' onSubmit={loginHandler}>
                 <h1 className='signIn-title'>Log In</h1>
                 <input className='signIn-input'
@@ -33,7 +34,7 @@ export const SignIn = ({ setUser, setCurrentPage }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
-                <h3 className="error">{errorMessage}</h3>
+                
                 <button className='login-btn' type="submit">Log In</button>
             </form>
         </div>

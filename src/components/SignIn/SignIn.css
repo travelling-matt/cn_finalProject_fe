@@ -11,13 +11,13 @@
 }
 
 .signIn-title {
-  color: #c0c0c0;
+  color: #fff;
   font-size: 2rem;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
   font-weight: lighter;
 }
 
-.content {
+.signIn-content {
   margin-top: 5rem;
   padding: 50px;
   text-align: center;
@@ -60,21 +60,44 @@
   background-color: #c6cdd4;
 }
 
-@media screen and (max-width: 1300px) {
+.logIn-error {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 1028px) {
   .signIn-form {
-    padding-bottom: 60px;
-    width: 20rem;
-    height: 10rem;
+    margin-right: 40%;
+    padding-bottom: 30px;
+    width: 100%;
+    height: 50%;
   }
 
-  .content {
+  .signIn-content {
+    margin-right: 20%;
     padding: 50px;
   }
   .signIn-input {
+    margin-left: 1rem;
     padding: 6px 15px;
     margin-top: 20px;
   }
   .login-btn {
-    margin-top: 15px;
+    margin-top: 20px;
+  }
+
+  .singIn-content {
+    justify-content: center;
+  }
+
+  .login-btn {
+    width: 35%;
+    margin-left: 30%;
+  }
+
+  .logIn-error {
+    margin-left: 15%;
+    text-align: center;
+    width: 70%;
   }
 }

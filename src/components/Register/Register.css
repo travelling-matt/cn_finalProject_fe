@@ -1,4 +1,4 @@
-.form {
+.register-form {
   display: grid;
   align-items: center;
   justify-content: space-around;
@@ -11,14 +11,15 @@
 }
 
 .singUp-title {
-  color: #c0c0c0;
+  margin-left: 6rem;
+  color: #fff;
   font-size: 2rem;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
   font-weight: lighter;
 }
 
 .content {
-  margin-top: 5rem;
+  margin-top: 10rem;
   padding: 50px;
   text-align: center;
 }
@@ -60,25 +61,41 @@
   background-color: #c6cdd4;
 }
 
-.error {
-  
+.register-error {
+  margin-top: 30px;
+  margin-left: 35%;
+  text-align: center;
+  width: 30%;
+  font-size: 1.2rem;
+  color: #fff;
 }
 
 @media screen and (max-width: 1200px) {
-  .form {
-    padding-bottom: 60px;
-    width: 20rem;
-    height: 10rem;
+  .register-form {
+    margin-right: 40%;
+    padding-bottom: 30px;
+    width: 70%;
+    height: 50%;
   }
 
   .content {
-    padding: 50px;
+    padding: 70px;
   }
   .signUp-input {
+    margin-left: 1rem;
     padding: 6px 15px;
     margin-top: 20px;
   }
+
+  .register-error {
+    margin-left: 15%;
+    text-align: center;
+    width: 40%;
+  }
+
   .submit-btn {
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: 35%;
+    width: 30%;
   }
 }
