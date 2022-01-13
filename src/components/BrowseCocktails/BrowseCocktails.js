@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { DrinkTile, } from "../DrinkTile/DrinkTile";
 import './BrowseCocktails.css';
+import React, { useRef } from 'react';
 
 export const BrowseCocktails = () => {
   const [popularCocktails, setPopularCocktails] = useState([]);
@@ -10,7 +11,10 @@ export const BrowseCocktails = () => {
   const [latestLoading, setLatestLoading] = useState(false);
   const [byLetterLoading, setByLetterLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
-
+  const titleRef = useRef();
+  function scrollHandler() {
+    titleRef.current.scrollIntoView({ behavior: 'smooth' })
+}
   const [error, setError] = useState({
     error: false,
     message: "",
@@ -87,8 +91,11 @@ export const BrowseCocktails = () => {
     //} catch (e) {
       //setError({ error: true, message: e.message });
     //}
+    scrollHandler();
   };
   
+
+
   useEffect(() => {
     getPopularCocktails();
     getLatestCocktails();    
@@ -123,23 +130,15 @@ export const BrowseCocktails = () => {
           })}</div>
         </div>
         )}
-  <hr></hr>
+
 {byLetterLoading ? (
         <p>loading...</p>
       ) : (
         
       <div >
-        {cocktailsByLetter.length != 0 ?
-          <div className="letter">
-            {cocktailsByLetter.map((item, index) => {
-              return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
-            })}
-          </div>
-        :
-          <h1>{errorMessage}</h1>
-        }
-          <header className="header "><h1> Cocktails A-Z</h1></header>
-          <div className="letter-list">
+        <hr></hr>
+          <header className="header "><h1 ref={titleRef}> Cocktails A-Z</h1></header>
+          <div className="letter-list">          
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("a")}>A</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("b")}>B</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("c")}>C</h1>
@@ -177,6 +176,15 @@ export const BrowseCocktails = () => {
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("8")}>8</h1>
             <h1 className="letter-link" onClick={() => getCocktailsByLetter("9")}>9</h1>
             </div>
+            {cocktailsByLetter.length !== 0 ?
+              <div className="letter">
+                {cocktailsByLetter.map((item, index) => {
+                return <DrinkTile key={index} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} />
+                })}
+              </div>
+            :
+              <h1>{errorMessage}</h1>
+            }
       </div> )}     
     </div>
   );
