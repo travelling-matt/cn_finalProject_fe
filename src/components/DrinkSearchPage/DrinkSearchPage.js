@@ -98,8 +98,8 @@ export const DrinkSearchPage = (props) =>{
             {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
 
             {userIngredients.length == 0 &&
-                <div className='error'>
-                    <h2>Add ingredients using MyBar to use this page.</h2>
+                <div className='search-error'>
+                    <h2 className='search-error-msg' > Add ingredients using MyBar to use this page.</h2>
                 </div>
             }
 
@@ -109,7 +109,7 @@ export const DrinkSearchPage = (props) =>{
                 })}       
             </div>
         </>
-        :   <div className='error'>
+        :   <div className='login-error'>
                 <h2>Please Log In or Register to use this page.</h2>
             </div>
         }

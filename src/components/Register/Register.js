@@ -26,8 +26,9 @@ export const Register = ({ setUser, setCurrentPage }) => {
     };
 
     return(
-        <div className='content'> 
-            <form className='form' onSubmit={registerHandler}>
+        <div className='content'>
+            <h3 className="register-error">{errorMessage}</h3> 
+            <form className='register-form' onSubmit={registerHandler}>
                  <h1 className='singUp-title'>Sign Up</h1>
                 <input className='signUp-input'
                     onChange={(e) => setEmail(e.target.value)}
@@ -43,7 +44,7 @@ export const Register = ({ setUser, setCurrentPage }) => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Confirm Password"
                 />
-                <h3 className="error">{errorMessage}</h3>
+                
                 <button className='submit-btn' type="submit">Submit</button>
             </form>
         </div>

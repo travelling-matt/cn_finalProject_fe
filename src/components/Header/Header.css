@@ -16,7 +16,7 @@
   font-weight: lighter;
   background-color: #6d8299;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
-  opacity: 0.6;
+
   cursor: pointer;
 }
 
@@ -33,11 +33,22 @@
 h3 {
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
   font-weight: lighter;
-  color: #c0c0c0;
+  color: #fff;
 }
 
-@media screen and (max-width: 800px) {
+.nav-email {
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1028px) {
   .nav-bar {
-    font-size: 25px;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 20px;
+  }
+  .button {
+    margin-right: 40px;
   }
 }

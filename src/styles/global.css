@@ -11,3 +11,10 @@ body {
   display: grid;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
 }
+
+h2 {
+  margin-top: 30px;
+
+  color: #fff;
+  font-weight: lighter;
+}

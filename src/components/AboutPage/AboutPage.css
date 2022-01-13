@@ -1,16 +1,17 @@
 .content {
+  margin-top: 0;
   color: aliceblue;
   justify-items: left;
   text-align: left;
-  
 }
-li,p{
+li,
+p {
   font-size: 20px;
 }
-h1{font-size:25px;}
-
-li{
-  color: aliceblue;
+h1 {
+  font-size: 25px;
 }
 
-
+li {
+  color: aliceblue;
+}
