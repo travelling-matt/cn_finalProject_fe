@@ -16,31 +16,37 @@ export const DrinkDetails = (props) => {
         console.log(props.drinkID);
 
         const response = await fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${props.drinkID}`);
-        console.log(response);
         const data = await response.json();
-        setDrinkDetails([...data.drinks[0]]);
+        
+        const drinkData = data.drinks[0];
+        await setDrinkDetails(drinkData);
 
-        console.log(data);
+        console.log(drinkData);
+        console.log();
 
         const ingredients = [
-            `${drinkDetails.strIngredient1} ${drinkDetails.strMeasure1}`,
-            `${drinkDetails.strIngredient2} ${drinkDetails.strMeasure2}`,
-            `${drinkDetails.strIngredient3} ${drinkDetails.strMeasure3}`,
-            `${drinkDetails.strIngredient4} ${drinkDetails.strMeasure4}`,
-            `${drinkDetails.strIngredient5} ${drinkDetails.strMeasure5}`,
-            `${drinkDetails.strIngredient6} ${drinkDetails.strMeasure6}`,
-            `${drinkDetails.strIngredient7} ${drinkDetails.strMeasure7}`,
-            `${drinkDetails.strIngredient8} ${drinkDetails.strMeasure8}`,
-            `${drinkDetails.strIngredient9} ${drinkDetails.strMeasure9}`,
-            `${drinkDetails.strIngredient10} ${drinkDetails.strMeasure10}`,
-            `${drinkDetails.strIngredient11} ${drinkDetails.strMeasure11}`,
-            `${drinkDetails.strIngredient12} ${drinkDetails.strMeasure12}`,
-            `${drinkDetails.strIngredient13} ${drinkDetails.strMeasure13}`,
-            `${drinkDetails.strIngredient14} ${drinkDetails.strMeasure14}`,
-            `${drinkDetails.strIngredient15} ${drinkDetails.strMeasure15}`
+            `${drinkData.strIngredient1} ${drinkData.strMeasure1}`,
+            `${drinkData.strIngredient2} ${drinkData.strMeasure2}`,
+            `${drinkData.strIngredient3} ${drinkData.strMeasure3}`,
+            `${drinkData.strIngredient4} ${drinkData.strMeasure4}`,
+            `${drinkData.strIngredient5} ${drinkData.strMeasure5}`,
+            `${drinkData.strIngredient6} ${drinkData.strMeasure6}`,
+            `${drinkData.strIngredient7} ${drinkData.strMeasure7}`,
+            `${drinkData.strIngredient8} ${drinkData.strMeasure8}`,
+            `${drinkData.strIngredient9} ${drinkData.strMeasure9}`,
+            `${drinkData.strIngredient10} ${drinkData.strMeasure10}`,
+            `${drinkData.strIngredient11} ${drinkData.strMeasure11}`,
+            `${drinkData.strIngredient12} ${drinkData.strMeasure12}`,
+            `${drinkData.strIngredient13} ${drinkData.strMeasure13}`,
+            `${drinkData.strIngredient14} ${drinkData.strMeasure14}`,
+            `${drinkData.strIngredient15} ${drinkData.strMeasure15}`
         ];
 
-        setDrinkIngredients(ingredients);
+        ingredients.forEach((item) => {
+            item.replace(/null/i, "");
+        })
+
+        setDrinkIngredients([...ingredients]);
         setComponentInitialized(true);
     }
 
@@ -51,7 +57,7 @@ export const DrinkDetails = (props) => {
 
     return (
         <div className="drink-details">
-            {drinkDetails &&
+            {drinkDetails && componentInitialized &&
             <>
             <div className="top-section">
                 <img className="drink-image" src={drinkDetails.strImageSource}/>

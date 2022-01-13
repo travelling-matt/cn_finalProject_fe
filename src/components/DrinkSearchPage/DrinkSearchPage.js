@@ -75,11 +75,9 @@ export const DrinkSearchPage = (props) =>{
         });
 
         setPossibleDrinks(availableDrinks);
-        console.log(possibleDrinks[0]);
     }
 
     const displayDetails = () => {
-        console.log(currentDrink);
         setDisplayDrink(true);
         //childCallback.current.needsToBeCalled();
     }
@@ -97,7 +95,7 @@ export const DrinkSearchPage = (props) =>{
         <>
         {props.user ?
         <>
-            {displayDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
+            {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
 
             {userIngredients.length == 0 &&
                 <div className='error'>
