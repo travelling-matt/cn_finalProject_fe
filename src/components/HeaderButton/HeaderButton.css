@@ -1,3 +1,13 @@
 .buttonContainer {
   cursor: pointer;
 }
+
+@media screen and (max-width: 1028px) {
+  h3 {
+    margin-right: 30rem;
+  }
+
+  .loginButton {
+    margin-right: 15rem;
+  }
+}
