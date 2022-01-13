@@ -23,7 +23,11 @@ export class IngredientSearch extends Component {
         // Fetch ingredients from the SQL database
         // Store in a variable for further use
         let userIngList = await userIngredientsFetch(this.props.user);
-        const ingredients = await invertedIngredientsFetch(userIngList);
+        let ingredients = [];
+        if(userIngList.length != 0) 
+            ingredients = await invertedIngredientsFetch(userIngList);
+        else
+            ingredients = await invertedIngredientsFetch('');
         this.setState({completeIngredientsList: [...ingredients]});
         this.filterIngredientsList(this.state.filterText);
     }
