@@ -14,6 +14,22 @@ export const MyBarPage = (props) =>{
 
     const [ingredients, setIngredients] = useState([]);
 
+    const sortUserIngredients = (list) => {
+        list.sort(function(a, b) {
+            let nameA = a.toUpperCase(); // ignore upper and lowercase
+            let nameB = b.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            // names must be equal
+            return 0;
+        });
+        return list;
+    }
+
     const changeIngredients = async (state, action) => {
         console.log(`${state} ${action}`);
         let list;
@@ -31,12 +47,15 @@ export const MyBarPage = (props) =>{
             default:
                 break;
         }
+        console.log(list);
+        list = sortUserIngredients(list);
         setIngredients(list);
         await addIngredientsFetch(props.user, list);
     }
 
     const getUserIngredients = async () => {
         let list = await userIngredientsFetch(props.user);
+        list = sortUserIngredients(list);
         setIngredients(list);
     }
 
@@ -49,7 +68,7 @@ export const MyBarPage = (props) =>{
         {props.user ?
             <div className="ingredient-search-content">
                 <div className="ingredient-search-bar">
-                    <IngredientSearch ingredientList={ingredients} changeIngredients={changeIngredients}/>
+                    <IngredientSearch ingredientList={ingredients} changeIngredients={changeIngredients} user={props.user}/>
                 </div>
                 <div className="my-ingredients">
                     {ingredients.map((item, index) => {

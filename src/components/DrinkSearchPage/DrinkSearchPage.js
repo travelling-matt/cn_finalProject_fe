@@ -2,8 +2,9 @@ import './DrinkSearchPage.css';
 
 import { drinksFetch, invertedIngredientsFetch, userIngredientsFetch } from '../../utils/index.js';
 import { DrinkTile } from '../DrinkTile/DrinkTile.js';
+import { DrinkDetails } from '../DrinkDetails/DrinkDetails.js';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // This would contain elements specific to the DrinkSearchPage
 // First element would be something to specify the search parameters
@@ -13,6 +14,9 @@ export const DrinkSearchPage = (props) =>{
 
     const [possibleDrinks, setPossibleDrinks] = useState([]);
     const [userIngredients, setUserIngredients] = useState([]);
+    const [currentDrink, setCurrentDrink] = useState();
+    const [displayDrink, setDisplayDrink] = useState(false);
+    //let childCallback = React.useRef(null);
 
     const findUsingMyBar = async () => {
         console.log("Finding Cocktails");
@@ -23,6 +27,7 @@ export const DrinkSearchPage = (props) =>{
         let allDrinkObjects = await drinksFetch();
         let availableDrinks = [];
         //const availableIngredients = ['Orange Juice', 'Vodka', 'Coca-Cola', 'Rum', 'Dark Rum', 'Spiced Rum', 'Coca-Cola', 'Gin', 'Tonic Water', 'Lime', 'Ice'];
+        console.log(ingredients);
         const missingIngredients = await invertedIngredientsFetch(ingredients);
 
         // Iterate through every cocktail in the DB
@@ -70,6 +75,18 @@ export const DrinkSearchPage = (props) =>{
         });
 
         setPossibleDrinks(availableDrinks);
+        console.log(possibleDrinks[0]);
+    }
+
+    const displayDetails = () => {
+        console.log(currentDrink);
+        setDisplayDrink(true);
+        //childCallback.current.needsToBeCalled();
+    }
+
+    const closeDetails = () => {
+        setDisplayDrink(false);
+        setCurrentDrink(null);
     }
 
     useEffect(() => {
@@ -80,6 +97,8 @@ export const DrinkSearchPage = (props) =>{
         <>
         {props.user ?
         <>
+            {displayDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
+
             {userIngredients.length == 0 &&
                 <div className='error'>
                     <h2>Add ingredients using MyBar to use this page.</h2>
@@ -88,8 +107,7 @@ export const DrinkSearchPage = (props) =>{
 
             <div className='drink-layout'>
                 {possibleDrinks.map((item, index) => {
-                    if(index < 20)
-                    return <DrinkTile key={index} drinkImg={item.thumbnailURL} drinkName={item.name}/>
+                    return <DrinkTile key={index} drinkID={item.id} drinkImg={item.thumbnailURL} drinkName={item.name} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
                 })}       
             </div>
         </>

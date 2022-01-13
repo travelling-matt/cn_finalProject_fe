@@ -1,9 +1,9 @@
 import './IngredientSearch.css'
 
-import { invertedIngredientsFetch } from '../../utils/index.js';
+import { invertedIngredientsFetch, userIngredientsFetch } from '../../utils/index.js';
 import { IngredientListItem } from '../IngredientListItem/IngredientListItem.js';
 
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 
 // This component should contain a text box for the user to search for ingredients in the list
 // And a list of each ingredient from the resulting search
@@ -14,26 +14,29 @@ export class IngredientSearch extends Component {
         super(props);
         this.state = {
             completeIngredientsList: [],
-            invertedUserIngredientsList: [],
-            filteredIngredientsList: []
+            filteredIngredientsList: [],
+            filterText: ""
         }
     }
 
     getIngredientsList = async () => {
-        // Fetch all ingredients from the SQL database
+        // Fetch ingredients from the SQL database
         // Store in a variable for further use
-
-        // The fetch may require an empty array to function properly
-        let ingredients = await invertedIngredientsFetch(['']);
-
-        this.setState({completeIngredientsList: ingredients});
-        this.setState({filteredIngredientsList: this.state.completeIngredientsList});
+        let userIngList = await userIngredientsFetch(this.props.user);
+        const ingredients = await invertedIngredientsFetch(userIngList);
+        this.setState({completeIngredientsList: [...ingredients]});
+        this.filterIngredientsList(this.state.filterText);
     }
 
-    filterIngredientsList = (filterText) => {
+    filterIngredientsList = async (filterText) => {
         // When the user starts typing in the search box
         // filter the array of ingredients to only contain
         // anything that matches the search parameters
+
+        //console.log(this.state.completeIngredientsList);
+
+        await this.setState({filterText: filterText});
+        console.log(this.state.filterText);
 
         let result = this.state.completeIngredientsList.filter(function(item) {
             return typeof item.name == 'string' && item.name.toLowerCase().indexOf(filterText.toLowerCase()) > -1;
@@ -43,21 +46,8 @@ export class IngredientSearch extends Component {
         this.setState({filteredIngredientsList: result});
     }
 
-    hideUserIngredients = () => {
-        // Make this work properly
-
-        let result = this.state.filteredIngredientsList;
-        this.props.ingredientList.forEach((item) => {
-            const index = result.indexOf(item);
-            console.log(item);
-            if(index > -1)
-                result = result.splice(index, 1);
-        })
-        this.setState({filteredIngredientsList: result});
-    }
-
     initializePage = () => {
-        if(this.state.completeIngredientsList.length == 0) {
+        if(this.state.completeIngredientsList.length === 0) {
             this.getIngredientsList();
         }
     }
@@ -73,7 +63,7 @@ export class IngredientSearch extends Component {
                 <input className="ingredient-input" placeholder='Search' onChange={(e) => this.filterIngredientsList(e.target.value)}/>
                 <div className="ingredient-search-container">
                     {this.state.filteredIngredientsList.map((item, index) => {
-                        return <IngredientListItem key={index} ingredientName={item.name} changeIngredients={this.props.changeIngredients}/>
+                        return <IngredientListItem key={index} ingredientName={item.name} changeIngredients={this.props.changeIngredients} getIngredientsList={this.getIngredientsList}/>
                     })}
                 </div>
             </div>

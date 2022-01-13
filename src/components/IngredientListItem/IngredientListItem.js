@@ -9,13 +9,14 @@ export const IngredientListItem = (props) =>{
         props.changeIngredients(
             props.ingredientName,
             "add");
+        props.getIngredientsList();
     }
 
     return(
         <div className='ingredient-list-item'>
             <h3 className="ingredient-name">{props.ingredientName}</h3>
             <div className="add-button" 
-            onClick={addIngredient}><h1 className="plus">+</h1>
+                onClick={() => addIngredient()}><h1 className="plus">+</h1>
             </div>
         </div>
     )

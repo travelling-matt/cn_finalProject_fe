@@ -6,7 +6,7 @@ import './DrinkTile.css'
 
 export const DrinkTile = (props) =>{
     return(
-        <section className="card-container">
+        <section className="card-container" onClick={() => {props.displayDetails(); props.setCurrentDrink(props.id)}}>
            <div className="imgDrink-container">
                 <img src={props.drinkImg} alt="drink-image"/>
                 <h1 className='drink-name'>{props.drinkName}</h1>
