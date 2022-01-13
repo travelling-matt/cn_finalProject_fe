@@ -5,9 +5,9 @@ import './AboutPage.css'
 
 export const AboutPage = () =>{
     return(
-        <div className="content" alt="about-us">
+        <div className="about-content" alt="about-us">
             <title>About Us</title>
-            <h1>Tend the Bar</h1>
+            <h1 className="brand-name">Tend the Bar</h1>
             <br></br>
             <p>Welcome to Tend the Bar where you can create your own amazing cocktails using ingredients you have at home.
             Using our free cocktail generator you will find easy recipes to create your very own fantastic cocktails. We have over 700 cocktail recipes! 

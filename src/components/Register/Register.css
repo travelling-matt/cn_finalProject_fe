@@ -4,22 +4,23 @@
   justify-content: space-around;
   width: 30rem;
   height: 19rem;
-  margin: auto;
+
   padding: 10px 10px 10px;
   color: white;
   box-shadow: 1px 1px 2px black, 0 0 25px #6d8299;
 }
 
 .singUp-title {
-  margin-left: 6rem;
+  margin-left: 0.5rem;
   color: #fff;
   font-size: 2rem;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
   font-weight: lighter;
 }
 
-.content {
-  margin-top: 10rem;
+.register-content {
+  margin-left: 30%;
+  margin-top: 40px;
   padding: 50px;
   text-align: center;
 }
@@ -63,14 +64,14 @@
 
 .register-error {
   margin-top: 30px;
-  margin-left: 35%;
+  margin-left: 12%;
   text-align: center;
   width: 30%;
   font-size: 1.2rem;
   color: #fff;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1028px) {
   .register-form {
     margin-right: 40%;
     padding-bottom: 30px;

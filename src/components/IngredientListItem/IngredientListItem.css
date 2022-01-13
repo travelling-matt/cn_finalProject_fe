@@ -25,8 +25,5 @@
   color: #dbd8d8;
 }
 
-@media screen and (min-width: 700px) {
-  .ingredient-name {
-    font-size: 20px;
-  }
+@media screen and (max-width: 1028px) {
 }
