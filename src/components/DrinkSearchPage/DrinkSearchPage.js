@@ -109,8 +109,8 @@ export const DrinkSearchPage = (props) =>{
                 })}       
             </div>
         </>
-        :   <div className='login-error'>
-                <h2>Please Log In or Register to use this page.</h2>
+        :   <div className='search-error'>
+                <h2 className="search-error-msg">Please Log In or Register to use this page.</h2>
             </div>
         }
         </>

@@ -10,7 +10,7 @@ export const Header = (props) =>{
             <div className="nav-bar">
             <HeaderButton buttonName="About" clickFunction={props.aboutClicked}/>
                 <HeaderButton buttonName="MyBar" clickFunction={props.myBarClicked}/>
-                <HeaderButton buttonName="Search" clickFunction={props.searchClicked}/>
+                <HeaderButton buttonName="MyCocktails" clickFunction={props.searchClicked}/>
                 <HeaderButton buttonName="Browse" clickFunction={props.browseClicked}/>
                 <div>
                     {props.user ? 

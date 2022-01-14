@@ -111,7 +111,7 @@ export const BrowseCocktails = () => {
   }, []);
 
   if (error.error) {
-    return <h1>{error.message}</h1>;
+    return <h1 className="browse-error-msg">{error.message}</h1>;
   }
   return (
     <div>
@@ -200,7 +200,7 @@ export const BrowseCocktails = () => {
                 })}
               </div>
             :
-              <h1>{errorMessage}</h1>
+              <h1 className="browse-error-msg">{errorMessage}</h1>
             }
       </div> )}     
     </div>

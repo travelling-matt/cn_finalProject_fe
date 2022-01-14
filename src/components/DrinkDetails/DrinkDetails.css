@@ -1,8 +1,19 @@
+.desc-background {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 2560px;
+    top: -30%;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    display: block;
+}
+
 .desc-drink-details {
     width: 76%;
     height: 60vh;
     z-index: 10;
     position: fixed;
+    top: 30%;
     margin-left: 12vw;
     margin-right: 12vw;
     background-color: #6d8299;
@@ -61,9 +72,12 @@
 }
 
 .desc-drink-image {
-    height: 80%;
-    width: 35%;
+    height: auto;
+    width: auto;
     display: block;
+    max-width: 40%;
+    max-height: 90%;
+
 }
 
 .desc-instructions-section {
@@ -115,4 +129,15 @@
 .desc-close-button {
     height: 8%;
     width: 8rem;
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
+    font-weight: lighter;
+    font-size: 13px;
+    line-height: 29px;
+    text-align: center;
 }

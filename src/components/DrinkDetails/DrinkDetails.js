@@ -56,6 +56,7 @@ export const DrinkDetails = (props) => {
       }, []);
 
     return (
+        <div className="desc-background">
         <div className="desc-drink-details">
             {drinkDetails && componentInitialized &&
 
@@ -86,6 +87,7 @@ export const DrinkDetails = (props) => {
                 </div>
             }
             <button className="desc-close-button" onClick={props.closeDetails}>CLOSE</button>
+        </div>
         </div>
     );
 }
