@@ -8,9 +8,11 @@ import { DrinkDetails } from '../DrinkDetails/DrinkDetails.js';
 export const BrowseCocktails = () => {
   const [popularCocktails, setPopularCocktails] = useState([]);
   const [latestCocktails, setLatestCocktails] = useState([]);
+  const[nonAlcoholic,setNonAlcoholic]=useState([]);
   const [cocktailsByLetter, setCocktailsByLetter] = useState([]);
   const [popularLoading, setPopularLoading] = useState(false);
   const [latestLoading, setLatestLoading] = useState(false);
+  const[nonAlcoholicLoading,setNonAlcoholicLoading]=useState(false);
   const [byLetterLoading, setByLetterLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const [currentDrink, setCurrentDrink] = useState();
@@ -60,6 +62,25 @@ export const BrowseCocktails = () => {
     }
   };
 
+  const getNonAlcoholic = async () => {
+    try {
+      setNonAlcoholicLoading(true);
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=non_Alcoholic");
+      console.log(response);
+      console.log("fetching")
+      if (response.status !== 200) {
+        throw new Error("not fetching");
+      }
+      const data = await response.json();
+      setNonAlcoholic(data.drinks)
+      console.log("API info", data.drinks);
+      setNonAlcoholicLoading(false);
+    } catch (e) {
+      setError({ error: true, message: e.message });
+    }
+  };
+
+
   const getCocktailsByLetter = async (letter) => {
     //try {
       setCocktailsByLetter([]);
@@ -107,7 +128,8 @@ export const BrowseCocktails = () => {
 
   useEffect(() => {
     getPopularCocktails();
-    getLatestCocktails();    
+    getLatestCocktails();
+    getNonAlcoholic();    
   }, []);
 
   if (error.error) {
@@ -147,6 +169,22 @@ export const BrowseCocktails = () => {
           })}</div>
         </div>
         )}
+
+{nonAlcoholicLoading ? (
+        <p className="loading-text">loading...</p>
+      ) : (
+        <div >
+          <hr></hr>
+           <header className="browse-section-title"><h1>Non-Alcolic Cocktails</h1></header>
+           <div className='latest '>
+          {nonAlcoholic.map((item, index) => {
+            return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
+          })}</div>
+        </div>
+        )}
+
+
+
 
       {byLetterLoading ? (
         <p className="loading-text">loading...</p>
