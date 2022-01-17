@@ -175,7 +175,7 @@ export const BrowseCocktails = () => {
       ) : (
         <div >
           <hr></hr>
-           <header className="browse-section-title"><h1>Non-Alcolic Cocktails</h1></header>
+           <header className="browse-section-title"><h1>Non-Alcoholic Cocktails</h1></header>
            <div className='latest '>
           {nonAlcoholic.map((item, index) => {
             return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
