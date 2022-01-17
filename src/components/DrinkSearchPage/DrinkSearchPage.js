@@ -102,7 +102,9 @@ export const DrinkSearchPage = (props) =>{
                     <h2 className='search-error-msg' > Add ingredients using MyBar to use this page.</h2>
                 </div>
             }
-
+{possibleDrinks.length==0 &&  <div className='search-error'>
+                    <h2 className='search-error-msg' > Sorry, no cocktails available. You need to add more ingredients.</h2>
+                    </div>}
             <div className='drink-layout'>
                 {possibleDrinks.map((item, index) => {
                     return <DrinkTile key={index} drinkID={item.id} drinkImg={item.thumbnailURL} drinkName={item.name} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
