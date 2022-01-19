@@ -144,7 +144,7 @@ export const BrowseCocktails = () => {
         <p className="loading-text">loading...</p>
       ) : (
         <div >
-           <header className="browse-section-title"><h1 className="title">Popular Cocktails</h1></header>
+           <header className="browse-section-title"><h1>Popular Cocktails</h1></header>
            <div className='popular'>
           {popularCocktails.map((item, index) => {
             return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
