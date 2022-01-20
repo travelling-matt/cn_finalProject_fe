@@ -61,15 +61,16 @@ export const DrinkDetails = (props) => {
             {drinkDetails && componentInitialized &&
 
                 <div className="desc-top-section">
-                    <div className="desc-left-section">
-                        <div className="desc-title-section">
-                            <img className="desc-drink-image" src={drinkDetails.strDrinkThumb}/>
-                            <div className="desc-name-section">
-                                <h1 className="desc-drink-name">{drinkDetails.strDrink}</h1>
-                                <h3 className="desc-glass-type">Serve in a {drinkDetails.strGlass}</h3>
-                            </div>
+                    <div className="desc-title-section">
+                        <img className="desc-drink-image" src={drinkDetails.strDrinkThumb}/>
+                        <div className="desc-name-section">
+                            <h1 className="desc-drink-name">{drinkDetails.strDrink}</h1>
+                            <h3 className="desc-glass-type">Serve in a {drinkDetails.strGlass}</h3>
                         </div>
-                        <div className="desc-horizontal-line"/>
+                    </div>
+                    <div className="desc-horizontal-line"/>
+                    <div className="desc-bottom-half">
+                    <div className="desc-left-section">
                         <div className="desc-instructions-section">
                             <h2 className="desc-section-title">Instructions</h2>
                             <p className="desc-instructions-paragraph">{drinkDetails.strInstructions}</p>
@@ -83,6 +84,7 @@ export const DrinkDetails = (props) => {
                                 if(item != " ") return <h3 className="desc-drink-ingredients-item" key={index}>{item}</h3>
                             })}
                         </div>
+                    </div>
                     </div>
                 </div>
             }

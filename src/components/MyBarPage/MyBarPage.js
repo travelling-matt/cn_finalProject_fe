@@ -77,7 +77,7 @@ export const MyBarPage = (props) =>{
                 </div>
             </div>
             :   <div className='mybar-login-error'>
-                    <h2 className='mybar-error-msg' mybar-error >Please Log In or Register to use this page.</h2>
+                    <h2 className='mybar-error-msg'>Please Log In or Register to use this page.</h2>
                 </div>
             }
         </>

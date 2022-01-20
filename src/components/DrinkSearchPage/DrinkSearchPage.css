@@ -1,3 +1,8 @@
+.drink-search-page {
+  width: 100%;
+  height: 100%;
+}
+
 /* Defines how the card-containe are displayed*/
 .drink-layout {
   margin-top: 30px;
@@ -10,30 +15,19 @@
 }
 
 .search-error {
-  background-color: #6d8299;
-  margin-top: 10%;
-  text-align: center;
-  width: 50%;
-  padding: 10px;
-  margin-left: 25%;
-  border-radius: 5px;
+  width: 1000px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .search-error-msg {
+  background-color: rgba(109, 130, 153, 0.5);
+  margin-top: 10%;
+  text-align: center;
+  width: 50%;
+  padding: 32px;
+  border-radius: 5px;
   font-weight: lighter;
   color: #fff;
-}
-
-/*Makes the layout responsive*/
-@media screen and (max-width: 1028px) {
-  .drink-layout {
-    display: grid;
-    flex-direction: column;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
-  }
-
-  .search-error-msg,
-  .search-error {
-    width: 30rem;
-  }
 }
