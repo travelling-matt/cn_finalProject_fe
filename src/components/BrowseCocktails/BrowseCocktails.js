@@ -14,7 +14,7 @@ export const BrowseCocktails = () => {
   const [latestLoading, setLatestLoading] = useState(false);
   const [nonAlcoholicLoading, setNonAlcoholicLoading] = useState(false);
   const [byLetterLoading, setByLetterLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState(false);
   const [currentDrink, setCurrentDrink] = useState();
   const [displayDrink, setDisplayDrink] = useState(false);
   const titleRef = useRef();
@@ -243,8 +243,10 @@ export const BrowseCocktails = () => {
                 return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink} />
               })}
             </div>
-            :
-            <h1 className="browse-error-msg">{errorMessage}</h1>
+            :errorMessage?
+            
+            <h1 className="browse-error-msg">{errorMessage}</h1>:
+            <span></span>
           }
         </div>)}
     </div>
