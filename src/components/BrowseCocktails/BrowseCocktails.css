@@ -45,7 +45,7 @@ justify-content: space-evenly;
 
 .browse-error-msg {
   background-color: #6d8299;
-  margin-top: 10%;
+  margin-top: 2%;
   text-align: center;
   width: 50%;
   padding: 10px;
@@ -53,5 +53,5 @@ justify-content: space-evenly;
   border-radius: 5px;
   font-weight: lighter;
   color: #fff;
-  margin-bottom: 64px;
+  margin-bottom: 4%;
 }
