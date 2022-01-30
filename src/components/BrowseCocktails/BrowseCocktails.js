@@ -14,7 +14,7 @@ export const BrowseCocktails = () => {
   const [latestLoading, setLatestLoading] = useState(false);
   const [nonAlcoholicLoading, setNonAlcoholicLoading] = useState(false);
   const [byLetterLoading, setByLetterLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [currentDrink, setCurrentDrink] = useState();
   const [displayDrink, setDisplayDrink] = useState(false);
   const titleRef = useRef();
@@ -103,7 +103,6 @@ export const BrowseCocktails = () => {
         if (nameA > nameB) {
           return 1;
         }
-
         // names must be equal
         return 0;
       });
@@ -243,7 +242,7 @@ export const BrowseCocktails = () => {
                 return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink} />
               })}
             </div>
-            :errorMessage?
+            :(errorMessage!=="")?
             
             <h1 className="browse-error-msg">{errorMessage}</h1>:
             <span></span>

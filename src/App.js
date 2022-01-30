@@ -8,7 +8,7 @@ import { AboutPage } from "./components/AboutPage/AboutPage.js";
 import { DrinkSearchPage } from "./components/DrinkSearchPage/DrinkSearchPage.js";
 import { MyBarPage } from "./components/MyBarPage/MyBarPage.js";
 import { BrowseCocktails } from "./components/BrowseCocktails/BrowseCocktails.js";
-
+import { Search}from"./components/SearchIngred/SearchIngred.js";
 import { tokenFetch } from "./utils";
 
 import './styles/global.css';
@@ -27,6 +27,9 @@ const App = () =>{
 
   const searchClicked = () => {
     setCurrentPage("DrinkSearch");
+  }
+  const searchIngredClicked=()=>{
+    setCurrentPage("Search")
   }
 
   const browseClicked = () => {
@@ -61,6 +64,8 @@ const App = () =>{
         return <Register setUser={setUser} setCurrentPage={setCurrentPage}/>;
       case "BrowseCocktails":
         return <BrowseCocktails/>;
+        case"Search":
+        return<Search/>;
     }
   }
 
@@ -74,6 +79,7 @@ const App = () =>{
               myBarClicked={myBarClicked}
               searchClicked={searchClicked}
               browseClicked={browseClicked}
+              searchIngredClicked={searchIngredClicked}
               signInClicked={signInClicked}
               registerClicked={registerClicked}
               logOutClicked={logOutClicked}

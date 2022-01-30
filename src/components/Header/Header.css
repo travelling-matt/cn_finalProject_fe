@@ -41,7 +41,7 @@ h3 {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 1028px) {
+/* @media screen and (max-width: 1028px) {
   .nav-bar {
     margin-left: 0;
     display: grid;
@@ -51,4 +51,4 @@ h3 {
   .button {
     margin-right: 40px;
   }
-}
+} */

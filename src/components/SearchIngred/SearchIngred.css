@@ -1,0 +1,79 @@
+.subtitle{margin-left: 20px;}
+
+.searchBox button,
+input {
+    height: 30px;
+    
+}
+
+.searchBox {
+    margin-left: 20px;
+    
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+    ;
+}
+
+.searchBox input {
+    width:20vw;
+    margin-right: 10px;
+    font-size: large;
+    padding-left: 10px;
+}
+
+.letter-list1 {
+    display: flex;
+    flex-direction: row;
+    text-shadow: 2px 2px 2px #000000;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.letter-link1 {
+    color: aliceblue;
+    padding-right: 10px;
+    margin-bottom: 0%;
+    text-shadow: 2px 2px 2px #000000;
+    cursor: pointer;
+}
+.search-filter{
+    /* border: solid teal; */
+display: flex;
+flex-direction: row;}
+.search-function{color: aliceblue;
+
+display: flex;
+flex-direction: row;
+margin-left: 20px;}
+.ingredient-tile{
+    
+  margin-top: 20px;  
+margin-left: 10vw;
+}
+.main {
+    overflow-y:scroll;
+    height: 50vh;
+    width:30vw;
+    border: solid white;
+}
+
+/* .subtitle {
+    color: aliceblue;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-bottom: 3px;
+} */
+
+.list {
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.browse-error-msg {
+    margin-bottom: 0%;
+    margin-top: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+.white{color:white}

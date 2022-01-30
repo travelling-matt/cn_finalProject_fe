@@ -142,3 +142,19 @@ export const userIngredientsFetch = async (user) => {
         console.log(error);
     }
 };
+
+export const allIngredientsFetch = async () => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}fetchAllIngredients`, {
+            method: "GET",
+           // headers: { "Content-Type" : "application/json" }
+        });
+        const data = await response.json();
+        
+        console.log(data.ingredients);
+        return data.ingredients;
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
