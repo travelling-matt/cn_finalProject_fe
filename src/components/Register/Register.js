@@ -9,14 +9,16 @@ import { signUpFetch } from "../../utils";
 export const Register = ({ setUser, setCurrentPage }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
-    const [errorMessage, setErrorMessage] = useState(" ");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const registerHandler = async (e) => {
         e.preventDefault();
-        console.log(email)
-        if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){setErrorMessage("Invalid email")}
-        else if(password === confirmPassword) {
+        console.log(email);
+        setErrorMessage("");
+        if(email===""|| password===""||confirmPassword==="")return;        
+         else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){setErrorMessage("Invalid email")}        
+         else if(password === confirmPassword) {
             try {
                 signUpFetch(email, password, setUser, setCurrentPage, setErrorMessage);
             } catch (error) {

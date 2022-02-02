@@ -34,7 +34,10 @@ export const signUpFetch = async (userEmail, password, setUser, setCurrentPage, 
             setUser(data.user);
             setCurrentPage("MyBar");
         } else if(response.status === 500)
-            setErrorMessage(data.userMessage);
+        console.log(data)
+        console.log(data.message)
+        console.log(data.userMessage)
+            setErrorMessage("Invalid email");
     } catch (error) {
         console.log(error);
     }
