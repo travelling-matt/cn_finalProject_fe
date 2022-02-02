@@ -8,7 +8,7 @@ import { signUpFetch } from "../../utils";
 
 export const Register = ({ setUser, setCurrentPage }) => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
