@@ -1,20 +1,19 @@
 .ingredient-list-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 80px;
   width: inherit;
 }
 
 .add-button .plus {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30%;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   color: #4b4949;
   background-color: #c0c0c0;
-  margin-right: 20px;
   cursor: pointer;
 }
 
@@ -25,8 +24,8 @@
   color: #dbd8d8;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 680px) {
   .ingredient-name {
-    font-size: 20px;
+    font-size: 14pt;
   }
 }

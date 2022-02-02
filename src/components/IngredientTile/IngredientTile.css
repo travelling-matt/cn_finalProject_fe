@@ -1,47 +1,62 @@
-.ingredient-img {
+.ingredient-tile-img {
   display: block;
-  background-color: #6d8299;
+  background-color: rgba(109, 130, 153, 0.5);
   border-radius: 10%;
   height: 90%;
   width: 100%;
-  cursor: pointer;
   margin: 0px;
 }
 
-.img-container {
-  margin-top: 15px;
-  height: 12rem;
-  width: 100%;
-}
-
-.ingredientImg-name {
+.ingredient-tile-name {
   margin-top: 10px;
-  background-color: #6d8299;
+  background-color: rgba(109, 130, 153, 0.5);
   border-radius: 5px;
   color: #fff;
   font-size: 20px;
   font-weight: lighter;
+  padding: 8px;
+  text-align: center;
 }
 
-.ingredient-container {
+.ingredient-tile-container {
   margin-top: 20px;
   width: 180px;
   height: 208px;
   padding: 16px;
 }
 
-.ingredient-container:hover {
+.ingredient-tile-container:hover {
   transform: scale(1.1);
 }
 
-.remove-button {
+.ingredient-remove-button {
   border: none;
   border-radius: 5px;
   background-color: #c0c0c0;
   margin-left: 10rem;
   cursor: pointer;
+  height: 24px;
+  z-index: 2;
+  position: relative;
+  top: 12px;
 }
 .remove {
   color: #4b4949;
   font-size: 15px;
+}
+
+@media screen and (max-width: 1028px) {
+  .ingredient-tile-container {
+    width: 130px;
+    height: 155px;
+    margin: 8px;
+    margin-bottom: 32px;
+  }
+
+  .ingredient-remove-button {
+    margin-left: 7rem;
+    cursor: pointer;
+    height: 24px;
+    top: 18px;
+  }
 }

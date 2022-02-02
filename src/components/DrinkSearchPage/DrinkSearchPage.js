@@ -92,7 +92,7 @@ export const DrinkSearchPage = (props) =>{
       }, []);
 
     return(
-        <>
+        <div className="drink-search-page">
         {props.user ?
         <>
             {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
@@ -115,6 +115,6 @@ export const DrinkSearchPage = (props) =>{
                 <h2 className="search-error-msg">Please Log In or Register to use this page.</h2>
             </div>
         }
-        </>
+        </div>
     )
 }

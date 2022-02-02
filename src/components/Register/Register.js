@@ -26,27 +26,28 @@ export const Register = ({ setUser, setCurrentPage }) => {
     };
 
     return(
-        <div className='content'>
-            <h3 className="register-error">{errorMessage}</h3> 
-            <form className='register-form' onSubmit={registerHandler}>
-                 <h1 className='singUp-title'>Sign Up</h1>
-                <input className='signUp-input'
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                />
-                <input className='signUp-input'
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                />
-                <input className='signUp-input'
-                    type="password"
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="Confirm Password"
-                />
-                
-                <button className='submit-btn' type="submit">Submit</button>
-            </form>
+        <div className='register-page'>
+            <div className="register-content">
+                <h3 className="register-error">{errorMessage}</h3> 
+                <form className='register-form' onSubmit={registerHandler}>
+                    <h1 className='register-title'>Register</h1>
+                    <input className='register-input'
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
+                    />
+                    <input className='register-input'
+                            type="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                    />
+                    <input className='register-input'
+                            type="password"
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            placeholder="Confirm Password"
+                    />
+                    <button className='register-submit-btn' type="submit">Register</button>
+                </form>
+            </div>
         </div>
     )
 };

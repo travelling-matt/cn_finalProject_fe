@@ -1,30 +1,46 @@
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.register-content {
+  margin-top: 10%;
+  padding: 50px;
+  padding-top: 20px;
+  background-color: rgba(109, 130, 153, 0.5);
+  border-radius: 20px;
+}
+
+.register-error {
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
 .register-form {
   display: grid;
   align-items: center;
-  justify-content: space-around;
-  width: 30rem;
-  height: 19rem;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
   margin: auto;
-  padding: 10px 10px 10px;
   color: white;
-  box-shadow: 1px 1px 2px black, 0 0 25px #6d8299;
 }
 
-.singUp-title {
-  margin-left: 6rem;
+.register-title {
+  text-align: center;
   color: #fff;
   font-size: 2rem;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
   font-weight: lighter;
 }
 
-.content {
-  margin-top: 10rem;
-  padding: 50px;
-  text-align: center;
-}
-
-.signUp-input {
+.register-input {
   outline: none;
   font-size: 14px;
   letter-spacing: 1px;
@@ -36,7 +52,7 @@
   border: 1px solid #fff;
 }
 
-.submit-btn {
+.register-submit-btn {
   background-color: #fff;
   border: 1px solid #d5d9d9;
   border-radius: 8px;
@@ -46,56 +62,16 @@
   display: inline-block;
   font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
   align-items: center;
-  font-weight: lighter;
+  font-weight: normal;
   font-size: 13px;
   line-height: 29px;
   padding: 0 8px 0 9px;
   position: relative;
   text-align: center;
   width: 50%;
-  margin-left: 25%;
   margin-bottom: 10px;
 }
 
-.submit-btn:hover {
+.register-submit-btn:hover {
   background-color: #c6cdd4;
-}
-
-.register-error {
-  margin-top: 30px;
-  margin-left: 35%;
-  text-align: center;
-  width: 30%;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-@media screen and (max-width: 1200px) {
-  .register-form {
-    margin-right: 40%;
-    padding-bottom: 30px;
-    width: 70%;
-    height: 50%;
-  }
-
-  .content {
-    padding: 70px;
-  }
-  .signUp-input {
-    margin-left: 1rem;
-    padding: 6px 15px;
-    margin-top: 20px;
-  }
-
-  .register-error {
-    margin-left: 15%;
-    text-align: center;
-    width: 40%;
-  }
-
-  .submit-btn {
-    margin-top: 10px;
-    margin-left: 35%;
-    width: 30%;
-  }
 }

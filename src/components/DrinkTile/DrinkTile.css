@@ -1,10 +1,13 @@
 /*Displays the drink's img and name*/
 .card-container {
+  cursor: pointer;
   margin-top: 30px;
   margin: 20px;
   width: 250px;
-  height: 100%;
+  height: auto;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .card-container:hover {
   transform: scale(1.1);
@@ -15,17 +18,18 @@
   align-items: center;
   overflow: hidden;
   height: 200px;
-  background-color: #6d8299;
+  background-color: rgba(109, 130, 153, 0.5);
   border-radius: 10%;
-  padding: 15px 4px 60px 15px;
+  padding: 16px 16px 60px 16px;
   margin: 0;
-  width: 85%;
+  width: 80%;
 }
 
 img {
   border-radius: 10%;
-  height: 200px;
-  cursor: pointer;
+  height: 100%;
+  width: auto;
+  display: block;
 }
 
 .drink-name {
@@ -38,15 +42,21 @@ img {
   line-height: 1;
 }
 
-/* Reseting default value*/
-h1,
-p {
-  margin: 0;
-  padding: 0;
-}
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1028px) {
   .card-container {
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
+    width: 150px;
+    height: auto;
+  }
+
+  .imgDrink-container {
+    height: 115px;
+    padding: 8px 8px 55px 8px;
+    margin: 0;
+    width: 80%;
+  }
+
+  .drink-name {
+    margin-top: 2px;
+    font-size: 1.1rem;
   }
 }

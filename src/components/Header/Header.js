@@ -8,34 +8,31 @@ export const Header = (props) =>{
     return(
         <header className="header">
             <div className="nav-bar">
-            <HeaderButton buttonName="About" clickFunction={props.aboutClicked}/>
+                <HeaderButton buttonName="About" clickFunction={props.aboutClicked}/>
                 <HeaderButton buttonName="MyBar" clickFunction={props.myBarClicked}/>
                 <HeaderButton buttonName="MyCocktails" clickFunction={props.searchClicked}/>
                 <HeaderButton buttonName="Search"clickFunction={props.searchIngredClicked}/>
                 <HeaderButton buttonName="Browse" clickFunction={props.browseClicked}/>
                 <div>
                     {props.user ? 
-                    <div className='button' onClick={props.logOutClicked}>
+                    <div className="logout-container">
                         <h3 className='nav-email'>{props.user}</h3>
-                        <span className='loginButton'>Log Out</span>
-                        
+                        <div className='button' onClick={props.logOutClicked}>
+                            <span className='loginButton'>Log Out</span>    
+                        </div>
                     </div> :
-                    
                     <div>
-                         
                         <div className='button' onClick={props.signInClicked}>
                         <span className='loginButton'>Log in</span>
                         </div>
                         <div className='button' onClick={props.registerClicked}>
                         <span className='loginButton'>Register</span>
-
-                        
                         </div>
                     </div>
                     }
-                   
                 </div>
             </div>
+            <hr className="header-hr"/>
         </header>
     )
 }

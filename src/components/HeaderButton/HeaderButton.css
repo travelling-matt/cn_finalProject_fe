@@ -1,17 +1,25 @@
 .buttonContainer {
   cursor: pointer;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .button-title {
-  font-weight: lighter !important;
+  font-family: "DM Serif Display", "Roboto", "Balsamiq Sans" serif;
+  font-weight: lighter;
+  color: #fff;
+  margin: 16px;
+  font-size: 30px;
+  font-weight: lighter;
 }
 
 @media screen and (max-width: 1028px) {
-  h3 {
-    margin-right: 30rem;
+  .buttonContainer {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
-  .loginButton {
-    margin-right: 20rem;
+  .button-title {
+    font-size: 20pt;
   }
 }

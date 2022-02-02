@@ -167,7 +167,7 @@ export const Search = () => {
              
               <div ><h1 className="browse-error-msg">{message}</h1></div>
               
-              <div className="letter">{cocktailsByIngredient.map((item, index) => {
+              <div id="drinks">{cocktailsByIngredient.map((item, index) => {
                 return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink} />
               })}</div>
             </div>
