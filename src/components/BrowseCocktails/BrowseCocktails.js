@@ -7,7 +7,7 @@ import { DrinkDetails } from '../DrinkDetails/DrinkDetails.js';
 export const BrowseCocktails = () => {
   const [cocktailList, setCocktailList] = useState([]);
   const [cocktailsLoading, setCocktailsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState("");
   const [currentDrink, setCurrentDrink] = useState();
   const [displayDrink, setDisplayDrink] = useState(false);
 
@@ -136,8 +136,9 @@ export const BrowseCocktails = () => {
             cocktailList.length !== 0 ?
               cocktailList.map((item, index) =>
                 {return <DrinkTile key={index} drinkID={item.idDrink} drinkImg={item.strDrinkThumb} drinkName={item.strDrink} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>})
-                :
-              <h1 className="browse-error-msg">{errorMessage}</h1>
+                :errorMessage!==""?
+              <h1 className="browse-error-msg">{errorMessage}</h1>:
+              <span></span>
             
           
         }              

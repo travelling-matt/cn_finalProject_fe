@@ -3,7 +3,7 @@ import './IngredientSearch.css'
 import { invertedIngredientsFetch, userIngredientsFetch } from '../../utils/index.js';
 import { IngredientListItem } from '../IngredientListItem/IngredientListItem.js';
 
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 
 // This component should contain a text box for the user to search for ingredients in the list
 // And a list of each ingredient from the resulting search
@@ -24,7 +24,7 @@ export class IngredientSearch extends Component {
         // Store in a variable for further use
         let userIngList = await userIngredientsFetch(this.props.user);
         let ingredients = [];
-        if(userIngList.length != 0) 
+        if(userIngList.length !== 0) 
             ingredients = await invertedIngredientsFetch(userIngList);
         else
             ingredients = await invertedIngredientsFetch('');

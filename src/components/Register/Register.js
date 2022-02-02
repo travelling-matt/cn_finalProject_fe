@@ -14,7 +14,7 @@ export const Register = ({ setUser, setCurrentPage }) => {
 
     const registerHandler = async (e) => {
         e.preventDefault();
-        if(password == confirmPassword) {
+        if(password === confirmPassword) {
             try {
                 signUpFetch(email, password, setUser, setCurrentPage, setErrorMessage);
             } catch (error) {
