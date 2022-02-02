@@ -10,7 +10,7 @@ import React, { useState, useEffect } from 'react';
 // First element would be something to specify the search parameters
 // Second element would be a container with a DrinkTile for each returned result
 
-export const DrinkSearchPage = (props) =>{
+export const DrinkSearchPage = (props) => {
 
     const [possibleDrinks, setPossibleDrinks] = useState([]);
     const [userIngredients, setUserIngredients] = useState([]);
@@ -22,7 +22,7 @@ export const DrinkSearchPage = (props) =>{
         console.log("Finding Cocktails");
         const ingredients = await userIngredientsFetch(props.user);
         setUserIngredients(ingredients)
-        if(ingredients.length == 0)
+        if (ingredients.length === 0)
             return;
         let allDrinkObjects = await drinksFetch();
         let availableDrinks = [];
@@ -31,8 +31,8 @@ export const DrinkSearchPage = (props) =>{
         const missingIngredients = await invertedIngredientsFetch(ingredients);
 
         // Iterate through every cocktail in the DB
-        for(let i = 0; i < allDrinkObjects.length; i++) {
-            
+        for (let i = 0; i < allDrinkObjects.length; i++) {
+
             // Create an array containing each ingredient in the cocktail
             // This is so we can forEach through each ingredient
             let dIng = [
@@ -58,10 +58,10 @@ export const DrinkSearchPage = (props) =>{
             // If the ingredient is null or blank, continue through the loop
             missingIngredients.forEach(ingredient => {
                 dIng.forEach(drinkIngredient => {
-                    if(drinkIngredient === null || drinkIngredient === "")
+                    if (drinkIngredient === null || drinkIngredient === "")
                         return;
 
-                    if(drinkIngredient.toLowerCase() === ingredient.name.toLowerCase())
+                    if (drinkIngredient.toLowerCase() === ingredient.name.toLowerCase())
                         allDrinkObjects[i].id = null;
                 });
             });
@@ -70,7 +70,7 @@ export const DrinkSearchPage = (props) =>{
         // Find each drink that has not been marked as null by the previous loop
         // Then add it to a list of possible drinks
         allDrinkObjects.forEach(drink => {
-            if(drink.id != null)
+            if (drink.id != null)
                 availableDrinks.push(drink);
         });
 
@@ -89,30 +89,32 @@ export const DrinkSearchPage = (props) =>{
 
     useEffect(() => {
         findUsingMyBar();
-      }, []);
+    }, [setUserIngredients]);
 
-    return(
+    return (
         <div className="drink-search-page">
-        {props.user ?
-        <>
-            {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
+            {props.user ?
+                <>
+                    {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails} />}
 
-            {userIngredients.length == 0 &&
-                <div className='search-error'>
-                    <h2 className='search-error-msg' > Add ingredients using MyBar to use this page.</h2>
+                    {userIngredients.length === 0 &&
+                        <div className='search-error'>
+                            <h2 className='search-error-msg' > Add ingredients using MyBar to use this page.</h2>
+                        </div>
+                    }
+                    {possibleDrinks.length === 0 && <div className='search-error'>
+                        <h2 className='search-error-msg' > Sorry, no cocktails available. You need to add more ingredients.</h2>
+                    </div>}
+                    <div className='drink-layout'>
+                        {possibleDrinks.map((item, index) => {
+                            return <DrinkTile key={index} drinkID={item.id} drinkImg={item.thumbnailURL} drinkName={item.name} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink} />
+                        })}
+                    </div>
+                </>
+                : <div className='search-error'>
+                    <h2 className="search-error-msg">Please Log In or Register to use this page.</h2>
                 </div>
             }
-
-            <div className='drink-layout'>
-                {possibleDrinks.map((item, index) => {
-                    return <DrinkTile key={index} drinkID={item.id} drinkImg={item.thumbnailURL} drinkName={item.name} displayDetails={displayDetails} setCurrentDrink={setCurrentDrink}/>
-                })}       
-            </div>
-        </>
-        :   <div className='search-error'>
-                <h2 className="search-error-msg">Please Log In or Register to use this page.</h2>
-            </div>
-        }
         </div>
     )
 }
