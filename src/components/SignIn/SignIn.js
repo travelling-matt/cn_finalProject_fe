@@ -17,6 +17,7 @@ export const SignIn = ({ setUser, setCurrentPage }) => {
             loginFetch(email, password, setUser, setCurrentPage, setErrorMessage);
         } catch (error) {
             console.log(error);
+            setErrorMessage("Invalid email/password")
         }
     };
     

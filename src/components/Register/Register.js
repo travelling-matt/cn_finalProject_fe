@@ -7,14 +7,16 @@ import { useState } from "react";
 import { signUpFetch } from "../../utils";
 
 export const Register = ({ setUser, setCurrentPage }) => {
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
     const [errorMessage, setErrorMessage] = useState(" ");
 
     const registerHandler = async (e) => {
         e.preventDefault();
-        if(password === confirmPassword) {
+        console.log(email)
+        if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){setErrorMessage("Invalid email")}
+        else if(password === confirmPassword) {
             try {
                 signUpFetch(email, password, setUser, setCurrentPage, setErrorMessage);
             } catch (error) {
