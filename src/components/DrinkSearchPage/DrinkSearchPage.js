@@ -89,7 +89,7 @@ export const DrinkSearchPage = (props) => {
 
     useEffect(() => {
         findUsingMyBar();
-    }, [setUserIngredients]);
+    }, []);
 
     return (
         <div className="drink-search-page">
@@ -103,7 +103,7 @@ export const DrinkSearchPage = (props) => {
                         </div>
                     }
                     {possibleDrinks.length === 0 && <div className='search-error'>
-                        <h2 className='search-error-msg' > Sorry, no cocktails available. You need to add more ingredients.</h2>
+                        <h2 className='search-error-msg' > Sorry, no cocktails available. You need to add more ingredients in MyBar.</h2>
                     </div>}
                     <div className='drink-layout'>
                         {possibleDrinks.map((item, index) => {
