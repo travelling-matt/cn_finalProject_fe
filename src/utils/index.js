@@ -37,7 +37,7 @@ export const signUpFetch = async (userEmail, password, setUser, setCurrentPage, 
         console.log(data)
         console.log(data.message)
         console.log(data.userMessage)
-            setErrorMessage("Invalid email");
+            setErrorMessage(data.userMessage);
     } catch (error) {
         console.log(error);
     }
