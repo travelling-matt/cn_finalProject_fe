@@ -102,7 +102,7 @@ export const DrinkSearchPage = (props) => {
                             <h2 className='search-error-msg' > Add ingredients using MyBar to use this page.</h2>
                         </div>
                     }
-                    {userIngredients.length !== 0 &&possibleDrinks.length === 0 && <div className='search-error'>
+                    {userIngredients.length !== 0 && possibleDrinks.length === 0 && <div className='search-error'>
                         <h2 className='search-error-msg' > Sorry, no cocktails available. You need to add more ingredients in MyBar.</h2>
                     </div>}
                     <div className='drink-layout'>

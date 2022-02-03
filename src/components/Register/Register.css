@@ -12,14 +12,25 @@
   padding-top: 20px;
   background-color: rgba(109, 130, 153, 0.5);
   border-radius: 20px;
+  
+  display: flex;
+  justify-content: center;
+  
 }
 
 .register-error {
-  margin-top: 30px;
+  position:absolute;
+  
+  justify-items: center;
+  align-items: center;
   text-align: center;
-  width: 100%;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10px;
   font-size: 1.2rem;
   color: #fff;
+  
 }
 
 .register-form {
@@ -28,8 +39,10 @@
   justify-items: center;
   width: 100%;
   height: 100%;
-  margin: auto;
+  
   color: white;
+  
+  
 }
 
 .register-title {
