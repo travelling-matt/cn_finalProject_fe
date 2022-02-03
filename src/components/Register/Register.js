@@ -17,7 +17,7 @@ export const Register = ({ setUser, setCurrentPage }) => {
         console.log(email);
         setErrorMessage("");
         if(email===""|| password===""||confirmPassword==="")return;        
-         else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){setErrorMessage("Invalid email")}        
+         else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){setErrorMessage("Invalid email!")}        
          else if(password === confirmPassword) {
             try {
                 signUpFetch(email, password, setUser, setCurrentPage, setErrorMessage);
