@@ -81,7 +81,7 @@ export const DrinkDetails = (props) => {
                         <h2 className="desc-section-title">Ingredients</h2>
                         <div className="desc-ingredients-container">
                             {drinkIngredients.map((item, index) => {
-                                if(item != " ") return <h3 className="desc-drink-ingredients-item" key={index}>{item}</h3>
+                                if(item !== " ") return <h3 className="desc-drink-ingredients-item" key={index}>{item}</h3>
                             })}
                         </div>
                     </div>
