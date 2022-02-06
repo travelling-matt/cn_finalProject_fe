@@ -71,10 +71,10 @@ export const DrinkDetails = (props) => {
                     <div className="desc-horizontal-line"/>
                     <div className="desc-bottom-half">
                     <div className="desc-left-section">
-                        <div className="desc-instructions-section">
+                        
                             <h2 className="desc-section-title">Instructions</h2>
                             <p className="desc-instructions-paragraph">{drinkDetails.strInstructions}</p>
-                        </div>
+                        
                     </div>
                     <div className="desc-vertical-line"/>
                     <div className="desc-right-section">
