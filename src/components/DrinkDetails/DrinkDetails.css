@@ -90,7 +90,6 @@
     display: block;
     max-width: 40%;
     max-height: 90%;
-
 }
 
 
@@ -100,7 +99,7 @@
     font-weight: lighter;
     padding: 8px;
     font-size: 14pt;   
-    border: solid green; 
+    /* border: solid green;  */
     height:50%;
     overflow: auto;
     margin:0;
@@ -111,7 +110,7 @@
     flex-wrap: wrap;
     font-size: 12pt;
     overflow: auto;
-    border: solid orange;
+    /* border: solid orange; */
     height:60%;
 }
 
@@ -136,7 +135,7 @@
     margin: 0;
      padding-bottom: 5%; 
     padding-top: 5%;
-    border:solid hotpink;
+    /* border:solid hotpink; */
 }
 
 .desc-right-section {
