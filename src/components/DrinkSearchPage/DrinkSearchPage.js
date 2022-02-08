@@ -17,12 +17,13 @@ export const DrinkSearchPage = (props) =>{
     const [currentDrink, setCurrentDrink] = useState();
     const [displayDrink, setDisplayDrink] = useState(false);
     //let childCallback = React.useRef(null);
-
+    useEffect(() => {
+        
     const findUsingMyBar = async () => {
         console.log("Finding Cocktails");
         const ingredients = await userIngredientsFetch(props.user);
         setUserIngredients(ingredients)
-        if(ingredients.length == 0)
+        if(ingredients.length === 0)
             return;
         let allDrinkObjects = await drinksFetch();
         let availableDrinks = [];
@@ -76,6 +77,8 @@ export const DrinkSearchPage = (props) =>{
 
         setPossibleDrinks(availableDrinks);
     }
+    findUsingMyBar();
+      }, [props.user]);
 
     const displayDetails = () => {
         setDisplayDrink(true);
@@ -87,9 +90,7 @@ export const DrinkSearchPage = (props) =>{
         setCurrentDrink(null);
     }
 
-    useEffect(() => {
-        findUsingMyBar();
-      }, []);
+    
 
     return(
         <>
@@ -97,12 +98,12 @@ export const DrinkSearchPage = (props) =>{
         <>
             {displayDrink && currentDrink && <DrinkDetails drinkID={currentDrink} closeDetails={closeDetails}/>}
 
-            {userIngredients.length == 0 &&
+            {userIngredients.length === 0 &&
                 <div className='search-error'>
                     <h2 className='search-error-msg' > Add ingredients using MyBar to use this page.</h2>
                 </div>
             }
-{possibleDrinks.length==0 &&  <div className='search-error'>
+{userIngredients.length !== 0 &&possibleDrinks.length===0 &&  <div className='search-error'>
                     <h2 className='search-error-msg' > Sorry, no cocktails available. You need to add more ingredients.</h2>
                     </div>}
             <div className='drink-layout'>

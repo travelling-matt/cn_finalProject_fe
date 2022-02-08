@@ -53,15 +53,15 @@ export const MyBarPage = (props) =>{
         await addIngredientsFetch(props.user, list);
     }
 
-    const getUserIngredients = async () => {
+    
+
+    useEffect(() => {const getUserIngredients = async () => {
         let list = await userIngredientsFetch(props.user);
         list = sortUserIngredients(list);
         setIngredients(list);
     }
-
-    useEffect(() => {
         getUserIngredients();
-    }, []);
+    }, [props.user]);
 
     return(
         <>
